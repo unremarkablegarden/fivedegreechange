@@ -1,0 +1,300 @@
+body, html
+  background: #f5f5f5
+#main
+  font-family: 'gtmono', monospace
+  // font-family: 'gt', sans-serif
+  letter-spacing: -0.06em
+  color: black
+  font-size: 1.6vw
+  line-height: 1.5em
+
+h1, h2, h3, .title, .subtitle
+  font-family: 'sp', sans-serif
+  color: black
+  letter-spacing: -0.025em
+  margin-bottom: 1em
+
+p
+  color: black
+  font-family: 'gtmono', monospace
+  letter-spacing: -0.05em
+  // font-size: 1.7vw
+  line-height: 1.5em
+  
+h1
+  font-size: 7vw
+  line-height: 0.75em
+h2
+  font-size: 3.5vw
+  line-height: .92em
+h3
+  font-size: 2vw
+
+.mono, .mono *
+  font-family: 'gtmono', monospace
+.alt, .alt *
+  font-family: 'gt', sans-serif
+  letter-spacing: 0.03rem
+  
+
+  
+a, .link, nuxt-link
+  // font-family: 'gt', sans-serif
+  font-family: 'gtmono', sans-serif
+  // letter-spacing: 0.03rem
+  
+  background: transparent
+  border-radius: 5px
+  padding: 0 6px 2px
+  color: black
+  transition: all 150ms ease-in
+  &:hover
+    color: white
+    background: black
+    opacity: 1
+    transition: all 150ms ease-out
+    transform: scale(1.1)
+
+strong a
+  border-radius: 5px !important
+  padding: 0 6px 2px !important
+  
+xmp
+  background: black
+  color: white
+  font-size: 10px
+  margin: 1rem
+  padding: 1rem
+  max-width: 600px
+  white-space: pre-wrap
+  word-wrap: break-word
+
+  
+$bg1: #E3DBF2
+$bg1b: #BFC2F4
+$fg1: #002754
+$bg2: #FFAF2F
+$bg2b: #F38B27
+$fg2: #FF3F16
+$bg3: #002754
+$bg3b: #1A5F6E
+$fg3: #E3DBF2
+$bg4: #6C91F7
+$bg4b: #6AADE7
+$fg4: #EDC33E
+$bg5: #E6E8EA
+$fg5: #5A514A
+$bg6: #fafafa
+$fg6: #333
+
+        
+.homepage-section
+  min-height: 100vh
+  padding: 4rem 20vw 4rem 4rem
+  a
+    display: inline-block
+  h1
+    width: 80%
+  h2
+    width: 80%
+
+.page
+  // background-attachment: fixed
+  
+.level-1
+  // .homepage-section[data-name='How about some change?']
+  background-color: $bg1
+  background-image: url(~assets/img/bg1.svg)
+  background-repeat: no-repeat
+  background-size: 120% auto
+  background-position: -21vw -40vh
+  *
+    color: $fg1 !important
+  a, nuxt-link
+    background: $fg1 !important
+    color: $bg1 !important
+    opacity: 0.8
+    border-bottom: 0 !important
+    
+.level-2
+  // .homepage-section[data-name='Let’s change together']
+  background-color: $bg2
+  background-image: url(~assets/img/bg2.svg)
+  background-repeat: no-repeat
+  background-size: 150% auto
+  background-position: -52vw 5vh
+  *
+    // color: $fg2
+    color: #4D2C0C !important
+  a, nuxt-link
+    background: $fg2 !important
+    // color: $bg2
+    color: #4D2C0C !important
+    border-bottom: 0 !important
+    // opacity: 0.9
+.level-3
+  background-color: $bg3
+  background-image: url(~assets/img/bg3.svg)
+  background-repeat: no-repeat
+  background-size: 150% auto
+  background-position: -22vw 45vh
+  *
+    color: $fg3 !important
+  a, nuxt-link
+    background: $fg3 !important
+    color: $bg3 !important
+    border-bottom: 0 !important
+
+  
+.level-4
+  // background-color: $bg4
+  $fg4b: #616197
+  $bg4b: #4c2e73
+  background-color: #4c2e73
+  background-image: url(~assets/img/bg4b.svg)
+  background-repeat: no-repeat
+  background-size: 100% auto
+  background-position: 35vw 4vh
+  *
+    color: $fg4 !important
+  a, nuxt-link
+    background: $fg4 !important
+    color: $bg4b !important
+
+.level-5
+  border-bottom: 1px #ccc solid
+  background-color: $bg5
+  // background-image: url(~assets/img/bg3.svg)
+  background-repeat: no-repeat
+  background-size: 150% auto
+  background-position: -22vw 45vh
+  *
+    color: $fg5 !important
+  a, nuxt-link
+    background: transparent
+    // color: $fg5
+    // border-bottom: 1px $fg5 solid !important
+    // border-bottom: 0 !important
+    
+    
+.level-6
+  border-bottom: 1px #ccc solid
+  background-color: $bg6
+  // background-image: url(~assets/img/bg3.svg)
+  background-repeat: no-repeat
+  background-size: 150% auto
+  background-position: -22vw 45vh
+  *
+    color: $fg6
+  a, nuxt-link
+    background: $fg6
+    color: $bg6
+ 
+// .level-5, .level-6
+//   a
+//     background: transparent
+//     color: $fg6
+//     border: 1px #aaa solid
+
+  
+  
+.homepage-section[data-name='Me in a minute']
+  padding: 4rem 4rem 4rem 4rem
+  // .content
+  columns: 2
+  column-gap: 7vw
+  a
+    // $link: $fg5
+    $link: #da6804
+    color: $link
+    border: 0
+    border-bottom: 1px $link solid
+    padding: 0 0 0px 0
+    border-radius: 0
+    &:hover
+      transform: scale(1)
+      // background: #6C645D
+      background: $link
+      color: $bg5
+      border-bottom: 1px transparent solid
+      border-radius: 5px
+      padding: 0 3px
+      margin: 0 -3px
+  h1
+    width: 100%
+  img
+    border-radius: 1rem
+
+  
+.homepage-section.blog
+  // border-bottom: 1px #ccc solid
+  background-color: #b3e4c9
+  *
+    color: #39507F
+  padding: 4rem
+  // background-image: url(~assets/img/bg3.svg)
+  // background-repeat: no-repeat
+  // background-size: 150% auto
+  // background-position: -22vw 45vh
+  
+// .post-part
+.page .slice-border
+  margin-bottom: 5vw
+  padding-bottom: 5vw
+  border-bottom: 2px rgba(0,0,0,0.5) solid
+  // &:last-child
+    // border-bottom: 0
+  
+xmp
+  color: white !important
+  
+// .page-enter-active,
+// .page-leave-active 
+//   transition: opacity 0.5s
+
+// .page-enter,
+// .page-leave-to 
+//   opacity: 0
+
+// .page-enter-active, .page-leave-active
+//   transition: all .25s ease-out
+// .page-enter, .page-leave-active
+//   opacity: 0
+//   transform-origin: 50% 50%
+
+.page-enter-active
+  animation: acrossIn .35s ease-out both
+
+.page-leave-active
+  animation: acrossOut .35s ease-in both
+
+.home-enter-active, .home-leave-active
+  animation: acrossIn2 .35s ease-out both
+.home-enter, .home-leave-active
+  animation: acrossOut2 .35s ease-in both
+  
+
+@keyframes acrossIn
+  0%
+    transform: translate3d(-100%, 0, 0)
+  100%
+    transform: translate3d(0, 0, 0)
+
+@keyframes acrossOut
+  0%
+    transform: translate3d(0, 0, 0)
+  100%
+    transform: translate3d(100%, 0, 0)
+
+
+@keyframes acrossIn2
+  0%
+    transform: translate3d(100%, 0, 0)
+  100%
+    transform: translate3d(0, 0, 0)
+
+@keyframes acrossOut2
+  0%
+    transform: translate3d(0, 0, 0)
+  100%
+    transform: translate3d(-100%, 0, 0)

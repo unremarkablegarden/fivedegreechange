@@ -1,0 +1,33 @@
+{
+  "name": "fivedegreechange",
+  "version": "1.0.0",
+  "description": "five degree change",
+  "author": "Olle Holmberg",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/bulma": "^1.3.0",
+    "@nuxtjs/prismic": "^1.2.4",
+    "cross-env": "^7.0.2",
+    "imagesloaded": "^4.1.4",
+    "masonry-layout": "^4.2.2",
+    "node-fetch": "^2.6.1",
+    "node-sass": "^4.14.1",
+    "nuxt": "2.12.2",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^10.0.2",
+    "vue-masonry": "^0.11.8",
+    "vue-masonry-css": "^1.0.3",
+    "vue-masonry-wall": "^0.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

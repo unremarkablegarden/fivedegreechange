@@ -1,0 +1,58 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID",
+        "placeholder" : "UID"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "level" : [ ]
+        },
+        "choices" : {
+          "level" : {
+            "type" : "Slice",
+            "fieldset" : "Level",
+            "description" : "Each floor of the elevator",
+            "icon" : "border_horizontal",
+            "display" : "list",
+            "non-repeat" : {
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1",
+                  "label" : "Headline",
+                  "placeholder" : "Headline"
+                }
+              },
+              "subtitle" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Sub-header",
+                  "placeholder" : "Sub-header"
+                }
+              }
+            },
+            "repeat" : {
+              "content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Content",
+                  "placeholder" : "Content"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

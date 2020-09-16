@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'gt';
+  src: url('~assets/fonts/subset-GTAmerica-ExtendedRegular.woff2') format('woff2'),
+      url('~assets/fonts/subset-GTAmerica-ExtendedRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'gt';
+  src: url('~assets/fonts/subset-GTAmerica-ExtendedBold.woff2') format('woff2'),
+      url('~assets/fonts/subset-GTAmerica-ExtendedBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'sp';
+  src: url('~assets/fonts/subset-SportingGrotesque-bas.woff2') format('woff2'),
+      url('~assets/fonts/subset-SportingGrotesque-bas.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'gtmono';
+  src: url('~assets/fonts/subset-GTAmericaMono-Regular.woff2') format('woff2'),
+      url('~assets/fonts/subset-GTAmericaMono-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'gtmono';
+  src: url('~assets/fonts/subset-GTAmericaMono-Bold.woff2') format('woff2'),
+      url('~assets/fonts/subset-GTAmericaMono-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: block;
+}
