@@ -1,6 +1,6 @@
 <template lang='pug'>
   .blog
-    //- xmp {{ document }}
+    //- xmp {{ document.title }}
     .header
       nuxt-link(to='../').alt.back &larr; Back home
       .meta.alt
