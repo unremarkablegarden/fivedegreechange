@@ -14,6 +14,8 @@
   right: 3vw
   top: 3vw
   width: 18vw
+  z-index: 999
+  transform: scale(0.75) translate(20%, -25%)
   .bg 
     // img
     position: relative

@@ -1,6 +1,6 @@
 <template>
-    <section>
-        <section v-for="(slice, index) in slices" :key="'slice-' + index" :class='sliceClass(slice)'>
+    <div>
+        <section v-for="(slice, index) in slices" :key="'slice-' + index" :class='"slice-" + slice.slice_type'>
             <template v-if="slice.slice_type === 'level'">
                 <level :slice="slice"></level>
             </template>
@@ -13,11 +13,24 @@
             <template v-else-if="slice.slice_type === 'image_with_caption'">
                 <image-caption-slice :slice="slice"></image-caption-slice>
             </template>
+            
             <template v-else-if="slice.slice_type === 'testimonial'">
                 <testimonial-slice :slice="slice"></testimonial-slice>
             </template>
+            
+            <template v-else-if="slice.slice_type === 'table'">
+                <table-slice :slice="slice"></table-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'call_to_action'">
+                <cta-slice :slice="slice"></cta-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'columns'">
+                <columns-slice :slice="slice"></columns-slice>
+            </template>
         </section>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -26,7 +39,12 @@
 const QuoteSlice = () => import("../components/slices/QuoteSlice.vue");
 const TextSlice = () => import("../components/slices/TextSlice.vue");
 const ImageCaptionSlice = () => import("../components/slices/ImageCaptionSlice.vue");
+
 const TestimonialSlice = () => import("../components/slices/TestimonialSlice.vue");
+
+const TableSlice = () => import("../components/slices/TableSlice.vue");
+const CtaSlice = () => import("../components/slices/CtaSlice.vue");
+const ColumnsSlice = () => import("../components/slices/ColumnsSlice.vue");
 
 
 export default {
@@ -37,17 +55,23 @@ export default {
     QuoteSlice,
     TextSlice,
     ImageCaptionSlice,
-    TestimonialSlice
+    TestimonialSlice,
+    TableSlice,
+    CtaSlice,
+    ColumnsSlice
   },
   methods: {
-      sliceClass(slice) {
-          if (
-                slice.slice_type === 'text' || 
-                slice.slice_type === 'testimonial'
-            ) {
-              return 'slice-border'
-        }
-      }
+    //   sliceClass(slice) {
+    //       if (
+    //             slice.slice_type === 'text' || 
+    //             slice.slice_type === 'testimonial'
+    //         ) {
+    //           return 'slice-border'
+    //         }
+    //         else {
+    //             return slice.slice_type
+    //         }
+    //   }
   }
 }
 </script>

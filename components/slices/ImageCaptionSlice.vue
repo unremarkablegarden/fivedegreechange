@@ -1,26 +1,15 @@
 <template>
   <div>
-    <template v-if="size === 'image-full-width'">
-      <div class='blog-header single' :style="{ 'background-image': 'url(' + img.url + ')'}">
-        <template v-if="$prismic.asText(caption) != ''">
-          <div class="wrapper">
-            <h1>{{ $prismic.asText(caption) }}</h1>
-          </div>
-        </template>
-      </div>
-    </template>
-    <template v-else>
-      <div class='post-part single container post-image'>
-        <p class="block-img" :class="size">
-          <prismic-image :field="img"/>
+    <div :class="'post-part single container post-image ' + align">
+      <p class="block-img" :class="size">
+        <prismic-image :field="img"/>
+      </p>
+      <template v-if="$prismic.asText(caption) != ''">
+        <p>
+          <span class="image-label">{{ $prismic.asText(caption) }}</span>
         </p>
-        <template v-if="$prismic.asText(caption) != ''">
-          <p>
-            <span class="image-label">{{ $prismic.asText(caption) }}</span>
-          </p>
-        </template>
-      </div>
-    </template>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -33,12 +22,20 @@ export default {
       img: '',
       caption: '',
       size: '',
+      align: '',
+      imgClass: '',
     }
   },
   created () {
     this.img = this.slice.primary.image
     this.caption = this.slice.primary.caption
     this.size = this.slice.slice_label
+    let align = this.slice.primary.align
+    if (align === 'Left') align = 'left'
+    else if (align === 'Right') align = 'right'
+    else align = 'center'
+    this.align = align
+    this.imgClass = this.size + ' ' + this.align
   }
 }
 </script>
@@ -47,14 +44,19 @@ export default {
 
 .post-image
   // margin-bottom: 24px
-  margin-top: 1rem
+  margin-top: .5rem
   margin-bottom: 1rem
-  max-width: 50%
-  float: right
-  margin-left: 3rem
   img
     border-radius: 1rem
-.block-img
+  &.right
+    max-width: 40%
+    float: right
+    margin-left: 3rem
+  &.left
+    max-width: 40%
+    float: left
+    margin-right: 3rem
+
   
 
 .image-label

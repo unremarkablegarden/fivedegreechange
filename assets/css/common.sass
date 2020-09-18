@@ -112,7 +112,7 @@ $fg6: #333
   background-position: -21vw -40vh
   *
     color: $fg1
-  a, nuxt-link
+  a, nuxt-link, .cta-button a
     background: $fg1
     color: $bg1
     opacity: 0.8
@@ -128,7 +128,7 @@ $fg6: #333
   *
     // color: $fg2
     color: #4D2C0C 
-  a, nuxt-link
+  a, nuxt-link, .cta-button a
     background: $fg2 
     // color: $bg2
     color: #4D2C0C 
@@ -142,7 +142,7 @@ $fg6: #333
   background-position: -22vw 45vh
   *
     color: $fg3 
-  a, nuxt-link
+  a, nuxt-link, .cta-button a
     background: $fg3 
     color: $bg3 
     border-bottom: 0
@@ -161,7 +161,7 @@ $fg6: #333
   align-items: center
   *
     color: $fg4 
-  a, nuxt-link
+  a, nuxt-link, .cta-button a
     background: $fg4 
     color: $bg4b
 
@@ -205,6 +205,13 @@ $fg6: #333
   &.level-1, &.level-2, &.level-3, &.level-4
     display: flex
     align-items: center
+
+.black-and-white
+  // a, nuxt-link, 
+  .cta-button a
+    background: black
+    color: white
+
  
 // .level-5, .level-6
 //   a
@@ -254,11 +261,16 @@ $fg6: #333
   
 // .post-part
 .page .slice-border
-  margin-bottom: 13vw
+  // margin-bottom: 13vw
   // padding-bottom: 5vw
   // border-bottom: 2px rgba(0,0,0,0.5) solid
   // &:last-child
     // border-bottom: 0
+
+  
+section.columns
+  float: none
+  clear: both
   
 xmp
   color: white !important
