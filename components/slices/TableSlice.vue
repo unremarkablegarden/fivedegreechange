@@ -22,5 +22,8 @@ export default {
   float: none
 table
   width: 100%
+table, td
+  background: transparent
+  border: 2px rgba(0,0,0,0.3) solid
 
 </style>
