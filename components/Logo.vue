@@ -1,5 +1,5 @@
 <template lang="pug">
-  #logo
+  nuxt-link(to='/')#logo
     .bg
       span &nbsp;
       //- img(src='~assets/img/logo-bg.svg')
@@ -16,6 +16,8 @@
   width: 18vw
   z-index: 999
   transform: scale(0.75) translate(20%, -25%)
+  &:hover
+    background: transparent
   .bg 
     // img
     position: relative
