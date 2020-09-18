@@ -1,14 +1,20 @@
 <template lang='pug'>
-  .slice.cta
-    prismic-rich-text(:field='slice.primary.text', v-if='slice.primary.text.length')
-    prismic-rich-text(:field='slice.primary.button', v-if='slice.primary.button.length').cta-button.alt
+  .slice(:class='ctaSize')
+      prismic-rich-text(:field='slice.primary.text', v-if='slice.primary.text.length')
+      prismic-rich-text(:field='slice.primary.button', v-if='slice.primary.button.length').cta-button.alt
     
 </template>
 
 <script>
 export default {
   props: ['slice'],
-  name: 'cta-slice'
+  name: 'cta-slice',
+  computed: {
+    ctaSize () {
+      if (this.slice.primary.size) return 'cta small'
+      else return 'cta big'
+    }
+  }
 }
 </script>
 
@@ -17,12 +23,14 @@ export default {
   // position: absolute
   // left: 0
   // width: 100vw
-  background: rgba(0,0,0,0.11)
-  margin-top: 6vw
-  margin-bottom: 3vw
-  padding: 5vw 3vw 5vw
-  border-radius: 1rem
-  text-align: center
+  margin-bottom: 6vw
+  &.big
+    background: rgba(0,0,0,0.11)
+    margin-top: 6vw
+    margin-bottom: 3vw
+    padding: 5vw 3vw 5vw
+    border-radius: 1rem
+    text-align: center
   .cta-button
     margin-top: 2vw
     a, nuxt-link

@@ -30,7 +30,8 @@ export default {
       
 .page
   ul, ol
-    margin: 2rem 4rem 1rem
+    // margin: 2rem 4rem 1rem
+    margin: 1rem 4rem 3rem
     font-family: 'gt', sans-serif
     width: calc(100% - 8rem)
     columns: 2

@@ -39,6 +39,7 @@ export default {
   display: block
   font-weight: bold
   letter-spacing: -0.04em
+  line-height: 1.43em
   // padding-left: 2em
   // float: right
   
