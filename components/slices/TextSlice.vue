@@ -16,19 +16,19 @@ export default {
   // margin: 0 6rem 0 3rem
   // margin: 5vw 0
   a
-    $link: #26E
-    $linkbg: #FFFEFA
+    // $link: #26E
+    // $linkbg: #FFFEFA
     // background: $linkbg
     background: transparent
-    color: $link
-    border-bottom: 2px $link solid
+    // color: $link
+    // border-bottom: 2px $link solid
     // color: #C5731E
     padding: 0 0 1px 0
     margin: 0
     border-radius: 0
-    &:hover
-      color: white
-      background: $link
+    // &:hover
+      // color: white
+      // background: $link
       // border: 1px black solid
   p
     padding-bottom: 1.3rem
@@ -67,11 +67,15 @@ export default {
       
 .page
   ul, ol
-    margin-left: 1rem
-    margin-bottom: 2rem
-    margin-top: 0rem
+    // border-left: 2px rgba(0,0,0,0.3) solid
+    // margin-left: 1rem
+    // margin-bottom: 2rem
+    margin: 2rem 4rem 1rem
+    // margin-left: 4rem
+    // margin-bottom: 2rem
+    // margin-top: 0rem
     font-family: 'gt', sans-serif
-    width: 100%
+    width: calc(100% - 8rem)
     columns: 2
     column-gap: 7vw
     li

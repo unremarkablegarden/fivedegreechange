@@ -1,15 +1,15 @@
 <template lang='pug'>
-  .inner
-    prismic-rich-text.title(:field="slice.primary.title", v-if='slice.primary.title.length')
-    prismic-rich-text.title(:field="slice.primary.subtitle", v-if='slice.primary.subtitle.length')
-    
-    .content(v-for='(item, i) in slice.items', :key='i')      
-      .alt(v-if='strong(item)')
-        prismic-rich-text(:field='item.content')
-      div(v-else)
-        prismic-rich-text(:field='item.content')
+  .level-component
+    .inner
+      prismic-rich-text.title(:field="slice.primary.title", v-if='slice.primary.title.length')
+      prismic-rich-text.title(:field="slice.primary.subtitle", v-if='slice.primary.subtitle.length')
       
-    
+      .content(v-for='(item, i) in slice.items', :key='i')      
+        .alt(v-if='strong(item)').cta
+          prismic-rich-text(:field='item.content')
+        div(v-else)
+          prismic-rich-text(:field='item.content')
+      
 </template>
 
 <script>
@@ -32,7 +32,12 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
+.cta
+  margin-top: 3em
+// .level-component
+// .inner
+  // background: #000
 // .textslice
 //   a
 //     text-decoration: underline

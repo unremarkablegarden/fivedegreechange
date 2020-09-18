@@ -1,15 +1,15 @@
 <template lang='pug'>
   .inner
     nuxt-link(:to='link').blog-link
+      //- div
       .blog-post
-        //- prismic-image(:field='post.data.hero_image', v-if='post.data.hero_image')
         .meta.alt
           .author(v-if='post.data.author_name') {{ post.data.author_name }}
           .author(v-else) Olof Ekman
           .date {{ formattedDate }}
         h2 {{ $prismic.asText(post.data.title) }}
         
-        p.text(v-if='post.data.excerpt.length')
+        .text(v-if='post.data.excerpt.length')
           prismic-rich-text(:field="post.data.excerpt")
         p.text(v-else) {{ getFirstParagraph(post) }}
         a.more.alt Continue reading &rarr;

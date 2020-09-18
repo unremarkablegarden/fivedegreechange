@@ -54,12 +54,12 @@ export default {
     }
   },
   watch: {
-    data() {
-      this.loaded();
+    data () {
+      this.loaded()
     }
   },
-  mounted() {
-    this.loaded();
+  mounted () {
+    this.loaded()
   },
   computed: {
     HALF () {

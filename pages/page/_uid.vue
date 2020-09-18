@@ -30,6 +30,7 @@
   .back
     opacity: 1 !important
     color: rgba(0,0,0,0.4) !important
+    border: 0 !important
   .meta
     color: rgba(0,0,0,0.4) !important
     float: right
