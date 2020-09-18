@@ -1,13 +1,15 @@
 <template lang='pug'>
   
   .page(:class='colour')
-    //- xmp {{  }}
-    .hero(v-if='document.hero_image.url', :style='"background-image: url("+document.hero_image.url+")"')
-      
     .header
       nuxt-link(to='/').alt.back &larr; Back home
       
-    h1.blog-title {{ $prismic.asText(document.title) }}
+    .container
+      section.section
+        .columns(v-if='document.hero_image')
+          .column.is-6.is-offset-3
+            prismic-image(:field='document.hero_image').hero2
+        h1.blog-title {{ $prismic.asText(document.title) }}
     
     .container
       section.section
@@ -17,11 +19,8 @@
 </template>
 
 <style lang="sass" scoped>
-  // .header
-    
   h1.blog-title
     line-height: 1em
-    margin-top: 3vw
   .section
     padding-top: 1.5rem
     // padding-top: 0
@@ -64,7 +63,7 @@
       width: auto
   h1
     margin-top: 0rem
-    margin-bottom: 3vw
+    margin-bottom: 0rem
     width: 80%
     margin-left: 10%
     text-align: center
@@ -75,11 +74,11 @@
     background-size: cover
     background-repeat: no-repeat
     background-position: center center
-    // margin-bottom: 3rem
+    margin-bottom: 3rem
   .hero2
     border-radius: 1rem
   .header
-    padding: 1rem 1rem 0
+    padding: 1rem
     a
       background: transparent
       color: black
@@ -101,7 +100,7 @@ export default {
   },
   head () {
     return {
-      title: this.document.title[0].text || 'Page'
+      title: 'Blog'
     }
   },
   computed: {
