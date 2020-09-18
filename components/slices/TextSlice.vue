@@ -11,46 +11,9 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .textslice
-  // margin: 0 6rem 0 3rem
-  // margin: 5vw 0
-  a
-    // $link: #26E
-    // $linkbg: #FFFEFA
-    // background: $linkbg
-    background: transparent
-    // color: $link
-    // border-bottom: 2px $link solid
-    // color: #C5731E
-    padding: 0 0 1px 0
-    margin: 0
-    border-radius: 0
-    // &:hover
-      // color: white
-      // background: $link
-      // border: 1px black solid
-  p
-    padding-bottom: 1.3rem
-  h2
-    margin-top: 1em
-    margin-left: -3rem
-    max-width: 70%
-    // color: white
-    // background: black
-    // display: inline-block
-    font-size: 4vw
-    font-weight: normal
-    strong
-      font-weight: normal
-  h3
-    font-size: 3vw
-    // max-width: 70%
-    line-height: 1em
-    font-weight: normal
-    strong
-      font-weight: normal
-      
+
 .blog
   ul, ol
     margin-left: 4rem
@@ -67,13 +30,7 @@ export default {
       
 .page
   ul, ol
-    // border-left: 2px rgba(0,0,0,0.3) solid
-    // margin-left: 1rem
-    // margin-bottom: 2rem
     margin: 2rem 4rem 1rem
-    // margin-left: 4rem
-    // margin-bottom: 2rem
-    // margin-top: 0rem
     font-family: 'gt', sans-serif
     width: calc(100% - 8rem)
     columns: 2
@@ -84,5 +41,5 @@ export default {
       line-height: 1.66em
       letter-spacing: 0em
       list-style: disc
-    
+
 </style>

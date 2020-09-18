@@ -22,6 +22,10 @@
                 <table-slice :slice="slice"></table-slice>
             </template>
             
+            <template v-else-if="slice.slice_type === 'check_list'">
+                <checklist-slice :slice="slice"></checklist-slice>
+            </template>
+            
             <template v-else-if="slice.slice_type === 'call_to_action'">
                 <cta-slice :slice="slice"></cta-slice>
             </template>
@@ -41,9 +45,7 @@ const TextSlice = () => import("../components/slices/TextSlice.vue");
 const ImageCaptionSlice = () => import("../components/slices/ImageCaptionSlice.vue");
 
 const TestimonialSlice = () => import("../components/slices/TestimonialSlice.vue");
-
-const TableSlice = () => import("../components/slices/TableSlice.vue");
-const CtaSlice = () => import("../components/slices/CtaSlice.vue");
+const TableSlice = () => import("../components/slices/TableSlice.vue");const ChecklistSlice = () => import("../components/slices/ChecklistSlice.vue");const CtaSlice = () => import("../components/slices/CtaSlice.vue");
 const ColumnsSlice = () => import("../components/slices/ColumnsSlice.vue");
 
 
@@ -57,6 +59,7 @@ export default {
     ImageCaptionSlice,
     TestimonialSlice,
     TableSlice,
+    ChecklistSlice,
     CtaSlice,
     ColumnsSlice
   },
