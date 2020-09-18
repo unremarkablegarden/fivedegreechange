@@ -5,7 +5,7 @@
       prismic-rich-text.title(:field="slice.primary.subtitle", v-if='slice.primary.subtitle.length')
       
       .content(v-for='(item, i) in slice.items', :key='i')      
-        .alt(v-if='strong(item)').cta
+        .alt(v-if='strong(item)').cta-home
           prismic-rich-text(:field='item.content')
         div(v-else)
           prismic-rich-text(:field='item.content')

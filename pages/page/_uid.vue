@@ -1,6 +1,7 @@
 <template lang='pug'>
   
   .page(:class='colour')
+    //- xmp {{  }}
     .hero(v-if='document.hero_image.url', :style='"background-image: url("+document.hero_image.url+")"')
       
     .header
@@ -20,6 +21,7 @@
     
   h1.blog-title
     line-height: 1em
+    margin-top: 3vw
   .section
     padding-top: 1.5rem
     // padding-top: 0
@@ -99,7 +101,7 @@ export default {
   },
   head () {
     return {
-      title: 'Blog'
+      title: this.document.title[0].text || 'Page'
     }
   },
   computed: {

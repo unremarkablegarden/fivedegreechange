@@ -106,7 +106,7 @@ export default {
   },
   head () {
     return {
-      title: 'Blog'
+      title: this.document.title[0].text || 'Blog'
     }
   },
   async asyncData({ $prismic, params, error }) {

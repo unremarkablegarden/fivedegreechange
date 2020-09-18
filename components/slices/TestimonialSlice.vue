@@ -4,7 +4,7 @@
     //- xmp {{  }}
     .columns.is-multiline.is-8.is-variable
       .testimonial(v-for='item in slice.items').column.is-6
-        .columns.is-variable.is-3
+        .columns.is-variable.is-3.is-mobile
           .column.is-4
             prismic-image(v-if='item.image.url', :field='item.image').image
             .name {{ item.name }}

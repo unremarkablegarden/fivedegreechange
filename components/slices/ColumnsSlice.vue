@@ -1,6 +1,6 @@
 <template lang='pug'>
   .slice.cols
-    .columns.is-12
+    .columns.is-12.is-variable.is-7
       .column(v-for='item in slice.items')
         prismic-rich-text(:field='item.column')
         //- xmp {{ item.column }}

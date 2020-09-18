@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- xmp {{ slice.primary }} -->
     <div :class="'post-part single container post-image ' + align">
       <p class="block-img" :class="size">
         <prismic-image :field="img"/>
@@ -33,7 +34,8 @@ export default {
     let align = this.slice.primary.align
     if (align === 'Left') align = 'left'
     else if (align === 'Right') align = 'right'
-    else align = 'center'
+    else if (align === 'Center (full width)') align = 'center'
+    // else align = 'center'
     this.align = align
     this.imgClass = this.size + ' ' + this.align
   }
@@ -48,6 +50,9 @@ export default {
   margin-bottom: 1rem
   img
     border-radius: 1rem
+  max-width: 40%
+  float: right
+  margin-left: 3rem
   &.right
     max-width: 40%
     float: right
@@ -56,6 +61,13 @@ export default {
     max-width: 40%
     float: left
     margin-right: 3rem
+    margin-left: 0
+  &.center
+    max-width: 100%
+    float: none
+    clear: both
+    margin-left: 0
+    
 
   
 

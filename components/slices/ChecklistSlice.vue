@@ -17,12 +17,15 @@ export default {
     clear: both
     float: none
     ul
+      columns: revert
+      list-style: none
       margin-left: 4rem
       margin-bottom: 1rem
       margin-top: 1rem
       font-family: 'gt', sans-serif
       width: 66%
       li
+        list-style: none
         font-size: 1.25rem
         margin-bottom: 0.85rem
         line-height: 1.8rem

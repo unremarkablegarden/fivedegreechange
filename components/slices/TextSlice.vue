@@ -11,9 +11,9 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .textslice
-
+  margin: 6vw 0
 .blog
   ul, ol
     margin-left: 4rem

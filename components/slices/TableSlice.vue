@@ -17,7 +17,9 @@ export default {
 
 <style lang='sass' scoped>
 .table-slice
-  margin: 2vw 3vw 4vw
+  margin: 2vw 3vw 6vw
+  clear: both
+  float: none
 table
   width: 100%
 
