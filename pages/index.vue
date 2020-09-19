@@ -120,7 +120,7 @@ export default {
   position: absolute
   // display: inline-block
   z-index: 99
-  right: 5vw
+  right: 4vw
   top: calc(95vh - 16vw)
   border-radius: 15vw
   display: flex
@@ -139,8 +139,8 @@ export default {
   transform-origin: center
   transform: rotate(-10deg)
   animation-name: news
-  animation-duration: 500ms
-  animation-easing: ease
+  animation-duration: 666ms
+  animation-timing-function: ease-in-out
   animation-iteration-count: infinite
   animation-direction: alternate
   a
@@ -156,10 +156,10 @@ export default {
 
 @keyframes news
   0%
-    transform: scale(1) rotate(-10deg)
+    transform: scale(1) rotate(-12deg)
   // 50%
   //   transform: scale(1.5)
   100%
-    transform: scale(1.1) rotate(-3deg)
+    transform: scale(1.08) rotate(-3deg)
 
 </style>
