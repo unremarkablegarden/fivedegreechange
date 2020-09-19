@@ -48,6 +48,8 @@ export default {
 </script>
 
 <style lang='sass' scoped>
+#mc_embed_signup
+  padding-bottom: 1vw
 .mailchimp
   // padding-bottom: 5vw
   font-size: 0.9rem

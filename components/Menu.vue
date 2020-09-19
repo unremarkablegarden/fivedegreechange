@@ -100,7 +100,7 @@ a, a:hover
 .menu-item
   display: block
   line-height: 1.3em
-  font-weight: bold
+  font-weight: normal
   // margin-bottom: 1.3em
   padding: 0.6em 0
   margin-left: 1em
@@ -122,7 +122,8 @@ a, a:hover
     // &:before
       
 .txt
-  margin-bottom: 0.7em
+  // text-decoration: underline
+  margin-bottom: 0.3em
   opacity: 0.86
   text-transform: uppercase
   font-size: 0.8em
