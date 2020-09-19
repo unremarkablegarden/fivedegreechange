@@ -1,7 +1,7 @@
 <template lang="pug">
   .homepage
   
-    level(:slice="level", v-for='(level, i) in homepage.body', :key="'slice-'+i", :class="'level-'+(i+1)", :data-name='level.primary.title[0].text.trim()').homepage-section
+    level(:slice="level", v-for='(level, i) in homepage.body', :key="'slice-'+i", :class="'level-'+(i+1)", :data-name='level.primary.title[0].text.trim().toLowerCase()').homepage-section
       
     section.section.blog.homepage-section
       h1 Blog 

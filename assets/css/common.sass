@@ -295,9 +295,35 @@ table
 //     color: $fg6
 //     border: 1px #aaa solid
 
+.column
+  img
+    max-width: 100%
+    height: auto
   
-  
-.homepage-section[data-name='Me in a minute']
+.page[data-name='me in a minute']
+  .slice.cols .column
+    display: flex
+    align-items: center
+
+.homepage-section[data-name='some of my previous clients']
+  // padding: 4rem 4vw 4rem 4rem
+  // display: flex
+  // align-items: center
+  .inside
+    display: flex
+    margin: 0 -3vw
+    align-items: center
+    .content
+      display: flex
+      justify-content: center
+      align-items: center
+      margin: 3vw
+      width: 100%
+      img
+        max-height: 8vw
+        filter: grayscale(100)
+    
+.homepage-section[data-name='me in a minute']
   padding: 4rem 4rem 4rem 4rem
   columns: 2
   column-gap: 7vw
