@@ -11,12 +11,14 @@
             blog-widget(:post='post')
       .blog-main(v-else)
         p No Posts published at this time.
-      
+        
+    footer-prismic  
 </template>
 
 <script>
 import BlogWidget from '~/components/BlogWidget.vue'
 import Level from '~/components/slices/Level.vue'
+import FooterPrismic from '~/components/FooterPrismic.vue'
 
 if (process.browser) {
   var Masonry = require('masonry-layout');
@@ -29,6 +31,7 @@ export default {
   components: {
     BlogWidget,
     Level,
+    FooterPrismic
   },
   data() {
     return {
@@ -38,7 +41,7 @@ export default {
         percentPosition: true,
         gutter: 0,
         itemSelector: ".item",
-        horizontalOrder: true
+        // horizontalOrder: true
       }
     };
   },
