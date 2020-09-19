@@ -6,7 +6,8 @@
     hr
     
     .links1
-      a(:href='email', taget='_blank') email
+      //- a(:href='email', taget='_blank') email
+      nuxt-link(to='/page/contact/') contact
       span •
       a(href='https://www.instagram.com/5degreechange/', taget='_blank') instagram
       span •
