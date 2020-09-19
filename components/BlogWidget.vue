@@ -79,8 +79,9 @@ export default {
         // background: #f0f0f0
         background: #C3F4D9
   .blog-link
-    // width: 50%
+    width: 100% !important
   .blog-post
+    width: 100% !important
     padding: 1em 1.4rem
     display: inline-block
     border-radius: 1em
