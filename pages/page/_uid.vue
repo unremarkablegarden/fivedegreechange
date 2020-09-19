@@ -86,7 +86,7 @@ h1.blog-title
   background: #f5f5f5
 .back
   opacity: 1 !important
-  color: rgba(0,0,0,0.4) !important
+  color: rgba(0,0,0,0.7) !important
   border: 0 !important
 .meta
   color: rgba(0,0,0,0.4) !important

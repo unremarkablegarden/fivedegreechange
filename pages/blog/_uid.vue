@@ -35,9 +35,9 @@
     background: #f5f5f5
   .back
     opacity: 1 !important
-    color: rgb(100,100,100) !important
+    color: rgba(0,0,0,0.7) !important
   .meta
-    color: rgb(100,100,100)
+    color: rgba(0,0,0,0.7) !important
     float: right
     text-align: right
     img
