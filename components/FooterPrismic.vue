@@ -16,5 +16,5 @@ export default {
 
 <style lang="sass" scoped>
   .footer
-    background: rgba(0,0,0,0.1)
+    background: rgba(0,0,0,0.07)
 </style>

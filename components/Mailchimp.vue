@@ -5,7 +5,8 @@
       #mc_embed_signup_scroll
         .mc-field-group.has-text-centered
           //- label(for='mce-EMAIL') Email
-          h3 Join the mailing list
+          p Join the mailing list
+          
           .formy
             input#mce-FNAME(type='text', name='FNAME', placeholder='First name').input.name
             input.required.email#mce-EMAIL(type='email', name='EMAIL', placeholder='Email address').input
@@ -49,6 +50,7 @@ export default {
 <style lang='sass' scoped>
 .mailchimp
   // padding-bottom: 5vw
+  font-size: 0.9rem
 .section
   margin-top: 0
   // padding-top: 6vw
@@ -68,7 +70,7 @@ export default {
     background: black
     color: white
 #mc-embedded-subscribe, .input
-  border: 1.3px black solid
+  border: 1.3px rgba(0,0,0,0.6) solid
 .name
   // margin-right: 6px
   width: 120px
@@ -85,4 +87,6 @@ export default {
     font-family: 'gtmono', monospace
     letter-spacing: -0.05em
     line-height: 1.5em
+    box-shadow: 0
+    font-size: 0.9rem
 </style>
