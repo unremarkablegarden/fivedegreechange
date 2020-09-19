@@ -1,6 +1,10 @@
 <template lang="pug">
   .homepage
-  
+    
+    .news(v-if='homepage.news.length')
+      prismic-rich-text(:field='homepage.news')
+      //- xmp {{  }}
+      
     level(:slice="level", v-for='(level, i) in homepage.body', :key="'slice-'+i", :class="'level-'+(i+1)", :data-name='level.primary.title[0].text.trim().toLowerCase()').homepage-section
       
     section.section.blog.homepage-section
@@ -111,7 +115,51 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-  .is-one-third
-    margin-bottom: 0.5rem
+<style lang="sass">
+.news
+  position: absolute
+  // display: inline-block
+  z-index: 99
+  right: 5vw
+  top: calc(95vh - 16vw)
+  border-radius: 15vw
+  display: flex
+  align-items: center
+  justify-content: center
+  text-align: center
+  padding: 0 1.5vw
+  font-style: italic
+  box-shadow: 0 0 20px 7px rgba(255,255,255,0.5)
+  font-size: calc(10px + 0.3vw)
+  width: 16vw
+  height: 16vw
+  backdrop-filter: blur(11px)
+  background: rgba(255,255,255,0.1)
+  border: 2px white solid
+  transform-origin: center
+  transform: rotate(-10deg)
+  animation-name: news
+  animation-duration: 500ms
+  animation-easing: ease
+  animation-iteration-count: infinite
+  animation-direction: alternate
+  a
+    text-decoration: underline
+    &:hover
+      background: transparent
+      color: black
+  p
+    padding: 0.5rem 0 0 0 !important
+    margin: 0 !important
+.is-one-third
+  margin-bottom: 0.5rem
+
+@keyframes news
+  0%
+    transform: scale(1) rotate(-10deg)
+  // 50%
+  //   transform: scale(1.5)
+  100%
+    transform: scale(1.1) rotate(-3deg)
+
 </style>
