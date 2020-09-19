@@ -68,7 +68,7 @@ export default {
   },
   transition: {
     // name: 'home',
-    mode: 'out-in'
+    // mode: 'out-in'
     // mode: 'in-out'
   },
   head () {

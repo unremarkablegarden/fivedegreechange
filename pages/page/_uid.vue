@@ -6,9 +6,11 @@
       
     .container
       section.section
-        .columns(v-if='document.hero_image')
+        //- xmp {{ document.hero_video.html }}
+        .columns(v-if='document.hero_image.url || document.hero_video')
           .column.is-6.is-offset-3
-            prismic-image(:field='document.hero_image').hero2
+            prismic-image(:field='document.hero_image', v-if='document.hero_image.url').hero_image
+            prismic-embed(:field='document.hero_video', v-if='document.hero_video.html').hero_video
         h1.blog-title {{ $prismic.asText(document.title) }}
     
     .container
@@ -75,8 +77,11 @@
     background-repeat: no-repeat
     background-position: center center
     margin-bottom: 3rem
-  .hero2
+  .hero_image
     border-radius: 1rem
+  .hero_video
+    iframe
+      width: 100%
   .header
     padding: 1rem
     a
@@ -95,7 +100,7 @@ export default {
   },
   transition: {
     name: 'home',
-    mode: 'out-in'
+    // mode: 'out-in'
     // mode: 'in-out'
   },
   head () {
