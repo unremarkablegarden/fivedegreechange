@@ -34,4 +34,6 @@ export default {
         &:before
           content: '✓ '
           opacity: 0.6
+          margin-left: -1.2em
+          padding-right: 0.2em
 </style>

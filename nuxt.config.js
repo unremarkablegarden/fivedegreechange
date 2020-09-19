@@ -16,6 +16,13 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }
+    ],
+    script: [
+      {
+        src:
+          'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
+        body: true
+      }
     ]
   },
 
@@ -38,7 +45,7 @@ module.exports = {
   */
   plugins: [
     { src: '~/plugins/prismicLinks', ssr: false },
-    { src: "~/plugins/vue-page-transition", ssr: true },
+    // { src: "~/plugins/vue-page-transition", ssr: true },
   ],
 
   /*
@@ -64,6 +71,11 @@ module.exports = {
   ],
   
   telemetry: false,
+  
+  router: {
+    prefetchLinks: true,
+    prefetchPayloads: true
+  },
   
   prismic: {
     endpoint: 'https://fivedegreechange.cdn.prismic.io/api/v2',

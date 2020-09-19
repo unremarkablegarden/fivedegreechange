@@ -51,11 +51,11 @@ export default {
   // padding-bottom: 5vw
 .section
   margin-top: 0
-  padding-top: 6vw
-  padding-bottom: 7vw
+  // padding-top: 6vw
+  // padding-bottom: 7vw
   // border-top: 1px black solid
   // box-shadow: 0 0 100px 50px rgba(0,0,0,.1)
-  background: rgba(0,0,0,0.07)
+  // background: rgba(0,0,0,0.07)
   // border-width: 1px 0
 *:focus
   outline: none

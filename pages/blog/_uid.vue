@@ -1,6 +1,5 @@
 <template lang='pug'>
   .blog
-    //- xmp {{ document.title }}
     .header
       nuxt-link(to='../').alt.back &larr; Back home
       .meta.alt
@@ -10,7 +9,7 @@
       section.section
         .columns(v-if='document.hero_image')
           .column.is-6.is-offset-3
-            prismic-image(:field='document.hero_image').hero2
+            prismic-image(:field='document.hero_image').hero_image
         h1.blog-title {{ $prismic.asText(document.title) }}
     
     .container
@@ -81,7 +80,7 @@
     background-repeat: no-repeat
     background-position: center center
     margin-bottom: 3rem
-  .hero2
+  .hero_image
     border-radius: 1rem
   .header
     padding: 1rem

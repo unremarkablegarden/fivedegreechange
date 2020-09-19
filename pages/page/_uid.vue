@@ -17,20 +17,23 @@
         content
           slices-block(:slices='slices')
     
-    mailchimp
+    footer-prismic
+    //- mailchimp
         
 </template>
 
 
 <script>
 import SlicesBlock from '~/components/SlicesBlock.vue'
-import Mailchimp from '~/components/Mailchimp.vue'
+// import Mailchimp from '~/components/Mailchimp.vue'
+import FooterPrismic from '~/components/FooterPrismic.vue'
 
 export default {
   name: 'post',
   components: {
     SlicesBlock,
-    Mailchimp
+    // Mailchimp,
+    FooterPrismic
   },
   transition: {
     // name: 'home',
