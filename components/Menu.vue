@@ -1,5 +1,5 @@
 <template lang="pug">
-  #menu
+  #menu(:class='{ white: isDark }')
     nav.navbar
       a.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', data-target='navbarBasicExample', @click='toggle', :class='{ "is-active": open }')
         span(aria-hidden='true')
@@ -13,7 +13,7 @@
         nuxt-link(to='/page/coaching').menu-item 1 on 1 coaching
         nuxt-link(to='/page/team-work').menu-item Team coaching
       nuxt-link(to='/page/olof').menu-item About
-      nuxt-link(to='/blog/').menu-item Blog
+      nuxt-link(to='/the-blog/').menu-item Blog
       nuxt-link(to='/page/get-in-touch').menu-item Get in touch
             
 </template>
@@ -23,10 +23,36 @@ export default {
   name: "Menu",
   data: function() {
     return {
-      open: false
+      open: false,
+      isDark: false
     }
   },
+  watch: {
+    $route: function (r) {
+      // console.log('route change')
+      // console.log(r);
+      this.pathCheck()
+      this.open = false
+    }
+  },
+  mounted () {
+    this.pathCheck()
+  },
   methods: {
+    pathCheck (r) {
+      let route = r
+      if (!route) route = this.$route.path
+      
+      const darkPaths = [
+        '/page/coaching',
+        '/page/team-work'
+      ]
+      if (darkPaths.includes(route)) {
+        this.isDark = true
+      } else {
+        this.isDark = false
+      }
+    },
     toggle () {
       this.open = !this.open
     }
@@ -42,14 +68,17 @@ export default {
   z-index: 999
 .navbar-burger
   display: block
+  height: 2rem
+  width: 2rem
+  transform: scale(2) translate(0.5vw, 0.5vw)
+  &:hover
+    transform: scale(2) translate(0.5vw, 0.5vw) !important
 .navbar
   background: transparent !important
 a, a:hover
   background: transparent !important
   transform: scale(1)
   color: rgba(0,0,0,0.8)
-a.navbar-burger
-  transform: scale(2)
 .inner
   $w: 300px
   transform: translate3d(-$w,0,0)
@@ -86,7 +115,7 @@ a.navbar-burger
   &:hover
     opacity: 1
     &:before
-      opacity: 1
+      opacity: 0.5
       
     // padding-left: 0.5em
     // width: 1em
@@ -100,4 +129,14 @@ a.navbar-burger
   margin-left: 1em
 .pad
   margin-left: 1em
+
+.white
+  *
+    color: rgba(255,255,255,0.8)
+  .inner
+    background: rgba(255,255,255,0.05)
+    border-color: white
+    a:hover
+      color: white
+
 </style>
