@@ -14,7 +14,7 @@
         nuxt-link(to='/page/team-work').menu-item Team coaching
       nuxt-link(to='/page/olof').menu-item About
       nuxt-link(to='/the-blog/').menu-item Blog
-      nuxt-link(to='/page/get-in-touch').menu-item Get in touch
+      nuxt-link(to='/page/contact').menu-item Get in touch
             
 </template>
 

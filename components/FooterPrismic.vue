@@ -5,10 +5,16 @@
     
     hr
     
-    .links
+    .links1
       a(:href='email', taget='_blank') email
+      span •
       a(href='https://www.instagram.com/5degreechange/', taget='_blank') instagram
+      span •
       a(href='https://www.linkedin.com/in/carlolofekman/', taget='_blank') linkedin
+    .links2
+      nuxt-link(to='/imprint/') imprint
+      span •
+      nuxt-link(to='/terms-of-service/') terms of service
       
     .txt
       span five degree change
@@ -16,6 +22,7 @@
       span Schudomastrasse 26
       br
       span 12055 Berlin
+      
       
 </template>
 
@@ -42,6 +49,8 @@ export default {
     font-size: 0.8rem
     letter-spacing: 0
     line-height: 1.5em
+    .txt
+      margin-top: 1.2vw
     hr
       margin: 2.5vw auto 1.8vw
       padding: 0
@@ -57,7 +66,7 @@ export default {
       border-bottom: 1px transparent solid
       text-transform: uppercase
       display: inline-block
-      margin: 1rem
+      margin: 0 0.5rem
       background: transparent !important
       &:hover
         transform: none
