@@ -15,7 +15,7 @@
   top: 3vw
   width: 18vw
   z-index: 999
-  transform: scale(0.75) translate(20%, -25%)
+  transform: scale(0.8) translate(20%, -25%)
   &:hover
     background: transparent
   .bg 
@@ -26,8 +26,11 @@
     width: 17vw
     height: 18vw
     z-index: 88
-    background: rgba(10,10,10,0.12)
+    // background: rgba(10,10,10,0.1)
+    background: rgba(150,150,150,0.15)
     mask: url(~assets/img/logo-bg.svg) no-repeat center
+    backdrop-filter: blur(11px)
+    // border: 1px white solid
     // border: 1px blue solid
   .fg img
     position: relative

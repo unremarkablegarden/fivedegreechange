@@ -6,7 +6,6 @@
       
     .container
       section.section
-        //- xmp {{ document.hero_video.html }}
         .columns(v-if='document.hero_image.url || document.hero_video')
           .column.is-6.is-offset-3
             prismic-image(:field='document.hero_image', v-if='document.hero_image.url').hero_image
@@ -17,8 +16,61 @@
       section.section
         content
           slices-block(:slices='slices')
+    
+    mailchimp
         
 </template>
+
+
+<script>
+import SlicesBlock from '~/components/SlicesBlock.vue'
+import Mailchimp from '~/components/Mailchimp.vue'
+
+export default {
+  name: 'post',
+  components: {
+    SlicesBlock,
+    Mailchimp
+  },
+  transition: {
+    // name: 'home',
+    // mode: 'out-in'
+    // mode: 'in-out'
+  },
+  head () {
+    return {
+      title: this.document.title[0].text || 'Page'
+    }
+  },
+  computed: {
+    colour () {
+      const options = {
+        "Black and white": 'black-and-white',
+        "Lavender": 'level-1', 
+        "Sunshine (yellow)": 'level-2', 
+        "Night (blue)": 'level-3', 
+        "Regal (purple)": 'level-4' 
+      }
+      let c = this.document.colour
+      return options[c]
+    }
+  },
+  async asyncData({ $prismic, params, error }) {
+    try{
+      const post = (await $prismic.api.getByUID('page', params.uid)).data
+
+      return {
+        document: post,
+        slices: post.body,
+      }
+    } catch (e) {
+      error({ statusCode: 202, message: 'page?!?!' })
+    }
+  },
+
+}
+</script>
+
 
 <style lang="sass" scoped>
   h1.blog-title
@@ -89,54 +141,3 @@
       color: black
       opacity: 0.4
 </style> 
-
-<script>
-import SlicesBlock from '~/components/SlicesBlock.vue'
-
-export default {
-  name: 'post',
-  components: {
-    SlicesBlock
-  },
-  transition: {
-    name: 'home',
-    // mode: 'out-in'
-    // mode: 'in-out'
-  },
-  head () {
-    return {
-      title: this.document.title[0].text || 'Page'
-    }
-  },
-  computed: {
-    colour () {
-      const options = {
-        "Black and white": 'black-and-white',
-        "Lavender": 'level-1', 
-        "Sunshine (yellow)": 'level-2', 
-        "Night (blue)": 'level-3', 
-        "Regal (purple)": 'level-4' 
-      }
-      let c = this.document.colour
-      return options[c]
-    }
-  },
-  async asyncData({ $prismic, params, error }) {
-    try{
-      const post = (await $prismic.api.getByUID('page', params.uid)).data
-
-      return {
-        document: post,
-        slices: post.body,
-        // formattedDate: Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(post.date)),
-      }
-    } catch (e) {
-      error({ statusCode: 202, message: 'page?!?!' })
-    }
-  },
-
-}
-</script>
-
-<style lang="sass">
-</style>

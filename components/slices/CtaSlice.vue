@@ -20,19 +20,23 @@ export default {
 
 <style lang='sass'>
 .cta
+  // display: inline-block
   // position: absolute
   // left: 0
   // width: 100vw
   margin-bottom: 6vw
   &.big
-    background: rgba(0,0,0,0.11)
+    // background: 
+    $c: rgba(0,0,0,0.2)
+    border: 2px $c solid
     margin-top: 6vw
     margin-bottom: 3vw
-    padding: 5vw 3vw 5vw
+    // padding: 5vw 3vw 5vw
+    padding: 3vw 3vw 2vw
     border-radius: 1rem
     text-align: center
   .cta-button
-    margin-top: 2vw
+    margin-top: 1vw
     a, nuxt-link
       // font-family: 'gtmono', sans-serif
       // letter-spacing: 0.03rem

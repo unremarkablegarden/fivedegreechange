@@ -2,7 +2,8 @@
   #app
     Logo
     #main
-      nuxt
+      vue-page-transition(name="flip-y")
+        nuxt
 </template>
 
 <script>

@@ -100,8 +100,8 @@ export default {
     SlicesBlock
   },
   transition: {
-    name: 'home',
-    mode: 'out-in'
+    // name: 'home',
+    // mode: 'out-in'
     // mode: 'in-out'
   },
   head () {

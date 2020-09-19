@@ -25,7 +25,8 @@
     "sass-loader": "^10.0.2",
     "vue-masonry": "^0.11.8",
     "vue-masonry-css": "^1.0.3",
-    "vue-masonry-wall": "^0.2.5"
+    "vue-masonry-wall": "^0.2.5",
+    "vue-page-transition": "^0.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

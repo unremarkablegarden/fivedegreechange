@@ -37,7 +37,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/prismicLinks', ssr: false }
+    { src: '~/plugins/prismicLinks', ssr: false },
+    { src: "~/plugins/vue-page-transition", ssr: true },
   ],
 
   /*
