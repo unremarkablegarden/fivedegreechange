@@ -33,6 +33,10 @@
             <template v-else-if="slice.slice_type === 'columns'">
                 <columns-slice :slice="slice"></columns-slice>
             </template>
+            
+            <template v-else-if="slice.slice_type === 'embed'">
+                <embed-slice :slice="slice"></embed-slice>
+            </template>
         </section>
     </div>
 </template>
@@ -47,6 +51,7 @@ const ImageCaptionSlice = () => import("../components/slices/ImageCaptionSlice.v
 const TestimonialSlice = () => import("../components/slices/TestimonialSlice.vue");
 const TableSlice = () => import("../components/slices/TableSlice.vue");const ChecklistSlice = () => import("../components/slices/ChecklistSlice.vue");const CtaSlice = () => import("../components/slices/CtaSlice.vue");
 const ColumnsSlice = () => import("../components/slices/ColumnsSlice.vue");
+const EmbedSlice = () => import("../components/slices/EmbedSlice.vue");
 
 
 export default {
@@ -61,7 +66,8 @@ export default {
     TableSlice,
     ChecklistSlice,
     CtaSlice,
-    ColumnsSlice
+    ColumnsSlice,
+    EmbedSlice
   },
   methods: {
     //   sliceClass(slice) {

@@ -47,6 +47,10 @@ export default {
       padding: 0
       // width: 66%
       width: 420px
+      border: 0
+      background: rgba(255,255,255,0.3)
+      border-radius: 3px
+      height: 2px
       
     a
       color: rgba(0,0,0,0.9)
@@ -54,6 +58,7 @@ export default {
       text-transform: uppercase
       display: inline-block
       margin: 1rem
+      background: transparent !important
       &:hover
         transform: none
         background: none
