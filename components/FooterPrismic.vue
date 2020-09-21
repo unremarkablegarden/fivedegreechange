@@ -15,9 +15,9 @@
       span •
       a(href='https://www.linkedin.com/in/carlolofekman/', taget='_blank') linkedin
     .links2
-      nuxt-link(to='/imprint/') imprint
+      nuxt-link(to='/page/imprint/') imprint
       span •
-      nuxt-link(to='/terms-of-service/') terms of service
+      nuxt-link(to='/page/terms-of-service/') terms of service
       
     .txt
       span five degree change
