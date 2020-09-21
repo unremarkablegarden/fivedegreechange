@@ -23,6 +23,8 @@
             .author-name(v-else) Olof Ekman
             .date {{ formattedDate }}
           slices-block(:slices='slices')
+          
+    footer-prismic
         
 </template>
 
@@ -92,11 +94,13 @@
 
 <script>
 import SlicesBlock from '~/components/SlicesBlock.vue'
+import FooterPrismic from '~/components/FooterPrismic.vue'
 
 export default {
   name: 'post',
   components: {
-    SlicesBlock
+    SlicesBlock,
+    FooterPrismic
   },
   transition: {
     // name: 'home',
