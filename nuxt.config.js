@@ -37,7 +37,8 @@ module.exports = {
   css: [
     // '@/assets/css/resetr.css',  // bulma does this ?
     '@/assets/css/fonts.css',
-    '@/assets/css/common.sass'
+    '@/assets/css/common.sass',
+    '@/assets/css/mobile.sass'
   ],
   
   /*

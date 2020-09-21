@@ -131,7 +131,6 @@ export default {
 <style lang="sass">
 .news
   position: absolute
-  // display: inline-block
   z-index: 99
   right: 4vw
   top: calc(95vh - 16vw)
@@ -164,6 +163,7 @@ export default {
   p
     padding: 0.5rem 0 0 0 !important
     margin: 0 !important
+
 .is-one-third
   margin-bottom: 0.5rem
 
