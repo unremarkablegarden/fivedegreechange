@@ -9,6 +9,8 @@
       //- a(:href='email', taget='_blank') email
       nuxt-link(to='/page/contact/') contact
       span •
+      nuxt-link(to='/the-blog/') blog
+      span •
       a(href='https://www.instagram.com/5degreechange/', taget='_blank') instagram
       span •
       a(href='https://www.linkedin.com/in/carlolofekman/', taget='_blank') linkedin
@@ -50,15 +52,17 @@ export default {
     font-size: 0.8rem
     letter-spacing: 0
     line-height: 1.5em
+    opacity: 0.8
+    padding-bottom: 4vw
     .txt
       margin-top: 1.2vw
     hr
-      margin: 2.5vw auto 1.8vw
+      margin: 1.5vw auto 2.5vw
       padding: 0
       // width: 66%
       width: 420px
       border: 0
-      background: rgba(255,255,255,0.3)
+      background: rgba(255,255,255,0.5)
       border-radius: 3px
       height: 2px
       

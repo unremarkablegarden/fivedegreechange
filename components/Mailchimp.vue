@@ -4,8 +4,8 @@
     form#mc-embedded-subscribe-form.validate(action='https://health.us3.list-manage.com/subscribe/post?u=e2d6d2c00fd193d5431b473e9&id=244264a68a', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate)
       #mc_embed_signup_scroll
         .mc-field-group.has-text-centered
-          //- label(for='mce-EMAIL') Email
-          p Join the mailing list
+          //- p Join the mailing list
+          p Join my private mailing list to receive a monthly bite-sized email with tools, tips, and techniques to help you get better at changing your habits, behaviours, and thinking.
           
           .formy
             input#mce-FNAME(type='text', name='FNAME', placeholder='First name').input.name
@@ -18,27 +18,6 @@
         div(style='position: absolute; left: -5000px;', aria-hidden='true')
           input(type='text', name='b_e2d6d2c00fd193d5431b473e9_244264a68a', tabindex='-1')
 
-//- #mc_embed_signup
-  form#mc-embedded-subscribe-form.validate(action='https://health.us3.list-manage.com/subscribe/post?u=e2d6d2c00fd193d5431b473e9&id=244264a68a', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate)
-    #mc_embed_signup_scroll
-      .mc-field-group
-        label(for='mce-EMAIL') Email Address
-        input.required.email#mce-EMAIL(type='email', name='EMAIL')
-      .mc-field-group
-        label(for='mce-FNAME') First Name
-        input#mce-FNAME(type='text', name='FNAME')
-      .mc-field-group
-        label(for='mce-LNAME') Last Name
-        input#mce-LNAME(type='text', name='LNAME')
-      #mce-responses.clear
-        .response#mce-error-response(style='display:none')
-        .response#mce-success-response(style='display:none')
-      div(style='position: absolute; left: -5000px;', aria-hidden='true')
-        input(type='text', name='b_e2d6d2c00fd193d5431b473e9_244264a68a', tabindex='-1')
-      .clear
-        input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
-
-
 </template>
 
 <script>
@@ -49,7 +28,10 @@ export default {
 
 <style lang='sass' scoped>
 #mc_embed_signup
+  width: 480px
+  margin: 0 auto
   padding-bottom: 1vw
+  padding-top: 0
 .mailchimp
   // padding-bottom: 5vw
   font-size: 0.9rem
@@ -91,4 +73,6 @@ export default {
     line-height: 1.5em
     box-shadow: 0
     font-size: 0.9rem
+.input::placeholder
+  color: rgba(0,0,0,0.6)
 </style>

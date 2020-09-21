@@ -11,7 +11,8 @@
       .pad
         nuxt-link(to='/page/habit-experiment').menu-item The 1-Month Habit Experiment
         nuxt-link(to='/page/coaching').menu-item 1 on 1 coaching
-        nuxt-link(to='/page/team-work').menu-item Team coaching
+        nuxt-link(to='/page/team-work').menu-item Team development
+      nuxt-link(to='/').menu-item Home
       nuxt-link(to='/page/olof').menu-item About
       nuxt-link(to='/the-blog/').menu-item Blog
       nuxt-link(to='/page/contact').menu-item Get in touch

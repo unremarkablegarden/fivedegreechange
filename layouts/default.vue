@@ -1,5 +1,11 @@
 <template lang='pug'>
   #app
+    cookie-control
+      template(v-slot:bar)
+        .cookiies
+          h3 This website uses cookies to ensure you get the best experience
+          p.small {{ $cookies.text.barDescription }}
+          n-link(to='/') Go somewhere
     Menu
     Logo
     #main
@@ -17,5 +23,14 @@ export default {
     Logo
   }
 }
-
 </script>
+
+<style lang="sass">
+.cookiies
+  .small
+    font-size: 12px
+    line-height: 1.2em
+    width: 66%
+.cookieControl__ControlButton
+  display: none !important
+</style>

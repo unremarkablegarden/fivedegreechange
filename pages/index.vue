@@ -3,11 +3,10 @@
     
     .news(v-if='homepage.news.length')
       prismic-rich-text(:field='homepage.news')
-      //- xmp {{  }}
       
-    level(:slice="level", v-for='(level, i) in homepage.body', :key="'slice-'+i", :class="'level-'+(i+1)", :data-name='level.primary.title[0].text.trim().toLowerCase()').homepage-section
+    level(:slice="level", v-for='(level, i) in homepage.body', :key="'slice-'+i", :class="'level-'+(i+1)", :data-name='level.primary.title[0].text.trim().toLowerCase()', :data-ref='level.primary.ref').homepage-section
       
-    section.section.blog.homepage-section
+    section.section.blog.homepage-section(data-ref='blog')
       h1 Blog 
       .blog-main(v-if='posts.length !== 0').viewer.columns.is-multiline
         section.blog-post(v-for='post in posts', :key='post.id', v-bind:post='post').item.column.is-one-third
@@ -23,6 +22,7 @@
 import BlogWidget from '~/components/BlogWidget.vue'
 import Level from '~/components/slices/Level.vue'
 import FooterPrismic from '~/components/FooterPrismic.vue'
+// import scrollIntoView from 'scroll-into-view'
 
 if (process.browser) {
   var Masonry = require('masonry-layout');
@@ -46,7 +46,8 @@ export default {
         gutter: 0,
         itemSelector: ".item",
         // horizontalOrder: true
-      }
+      },
+      hash: this.$route.hash
     };
   },
   methods: {
@@ -57,7 +58,16 @@ export default {
         // activate mansonry grid
         let masonry = new Masonry(this.selector, this.options);
         this.$emit("masonry-loaded", masonry);
+        // this.scrollToAnchorPoint()
       });
+    },
+    scrollToAnchorPoint() {
+      if (this.hash) {
+        const refName = this.hash.replace('#', '')
+        const el = this.$children.find(e => e.$attrs['data-ref'] === refName)
+        console.log(el);
+        el.$el.scrollIntoView({ behavior: 'smooth' })
+      }
     }
   },
   watch: {
@@ -67,6 +77,9 @@ export default {
   },
   mounted () {
     this.loaded()
+    this.$nextTick(function () {
+      this.scrollToAnchorPoint()  
+    })
   },
   computed: {
     HALF () {

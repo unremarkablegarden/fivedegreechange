@@ -43,6 +43,7 @@ export default {
       // background: transparent
       padding: 0.5em 1em 0.6em !important
       border-radius: 5px
+      border: 0 !important
       // font-family: 'gt', sans-serif
       // color: black
       transition: all 150ms ease-in

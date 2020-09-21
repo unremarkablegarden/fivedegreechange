@@ -303,11 +303,41 @@ table
   img
     max-width: 100%
     height: auto
-  
+
+.page[data-name='team work 🛠']
+  .footer
+    a
+      color: $fg4 !important
+    #mc-embedded-subscribe
+      background: $fg4 !important
+      color: black
+    
+.page[data-name='what do you want to do? 🤔']
+  table, td, .cta.big
+    border-color: rgba(255,255,255,0.7)
+  .cta-button a
+    background: $fg3 !important
+    color: $bg3 !important
+  .footer
+    a
+      border-bottom: 0 !important
+    
+    
 .page[data-name='me in a minute']
   .slice.cols .column
     display: flex
     align-items: center
+    
+.page[data-name='i would love to connect with you 📞']
+  // display: none
+  .post-part
+    .textslice:first-child
+      .block-img
+        text-align: center
+      img
+        max-width: 375px
+        mix-blend-mode: darken
+      // background: red
 
   
 .homepage-section[data-name='some of my previous clients']

@@ -7,7 +7,7 @@
     .container
       section.section
         .columns(v-if='document.hero_image.url || document.hero_video')
-          .column.is-6.is-offset-3.hero_column
+          .column.hero_column(:class='{ "is-6 is-offset-3" : document.hero_image.url, "is-8 is-offset-2" : document.hero_video }')
             prismic-image(:field='document.hero_image', v-if='document.hero_image.url').hero_image
             prismic-embed(:field='document.hero_video', v-if='document.hero_video.html').hero_video
         h1.blog-title {{ $prismic.asText(document.title) }}
@@ -74,6 +74,23 @@ export default {
 }
 </script>
 
+<style lang="sass">
+.hero_video
+  margin-top: 8vh
+  position: relative
+  padding-bottom: 56.25%
+  height: 0
+  overflow: hidden
+  max-width: 100%
+  width: 100%
+  iframe, object, embed
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    
+</style>
 
 <style lang="sass" scoped>
 h1.blog-title
@@ -134,10 +151,6 @@ h1
   margin-bottom: 3rem
 .hero_image
   border-radius: 1rem
-.hero_video
-  // border: 1px red solid
-  iframe
-    width: 100% !important
 .hero_column
   display: flex
   justify-content: center

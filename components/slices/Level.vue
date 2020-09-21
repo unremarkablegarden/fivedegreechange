@@ -1,6 +1,7 @@
 <template lang='pug'>
   .level-component
     .inner
+      //- xmp {{ slice.primary.ref }}
       prismic-rich-text.title(:field="slice.primary.title", v-if='slice.primary.title.length')
       prismic-rich-text.title(:field="slice.primary.subtitle", v-if='slice.primary.subtitle.length')
       
