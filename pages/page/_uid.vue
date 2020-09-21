@@ -6,8 +6,8 @@
       
     .container
       section.section
-        .columns(v-if='document.hero_image.url || document.hero_video')
-          .column.hero_column(:class='{ "is-6 is-offset-3" : document.hero_image.url, "is-8 is-offset-2" : document.hero_video }')
+        .columns(v-if='document.hero_image.url || document.hero_video.html')
+          .column.hero_column(:class='{ "is-6 is-offset-3" : document.hero_image.url, "is-8 is-offset-2" : document.hero_video.html }')
             prismic-image(:field='document.hero_image', v-if='document.hero_image.url').hero_image
             prismic-embed(:field='document.hero_video', v-if='document.hero_video.html').hero_video
         h1.blog-title {{ $prismic.asText(document.title) }}
