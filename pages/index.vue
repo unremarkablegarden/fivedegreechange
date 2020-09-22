@@ -1,6 +1,5 @@
 <template lang="pug">
   .homepage
-    //- xmp {{ homepage }}
     prismic-link(:field='homepage.news_link')
       .news(v-if='homepage.news.length')
         prismic-rich-text(:field='homepage.news')
@@ -166,7 +165,7 @@ export default {
   z-index: 99
   right: 4vw
   top: calc(95vh - 16vw)
-  border-radius: 15vw
+  border-radius: 100%
   display: flex
   align-items: center
   justify-content: center
