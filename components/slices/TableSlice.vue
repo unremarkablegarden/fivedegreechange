@@ -15,15 +15,16 @@ export default {
 }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sass'>
 .table-slice
   margin: 2vw 3vw 6vw
   clear: both
   float: none
-table
+table, .table
   width: 100%
-table, td
+table, td, .table, .table td
   background: transparent
   border: 2px rgba(0,0,0,0.3) solid
-
+  a
+    background: transparent !important
 </style>

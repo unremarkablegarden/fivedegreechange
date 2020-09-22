@@ -1,8 +1,9 @@
 <template lang="pug">
   .homepage
-    
-    .news(v-if='homepage.news.length')
-      prismic-rich-text(:field='homepage.news')
+    //- xmp {{  }}
+    prismic-link(:field='homepage.news_link')
+      .news(v-if='homepage.news.length')
+        prismic-rich-text(:field='homepage.news')
       
     level(:slice="level", v-for='(level, i) in homepage.body', :key="'slice-'+i", :class="'level-'+(i+1)", :data-name='level.primary.title[0].text.trim().toLowerCase()', :data-ref='level.primary.ref').homepage-section
       

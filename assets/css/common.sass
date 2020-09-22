@@ -205,13 +205,15 @@ $fg6: #333
  
 .page
   &.level-1
+    $lc: lighten($fg1, 25)
     a
-      $lc: lighten($fg1, 25)
       color: $lc
       border-bottom: 2px $lc solid
+    .block-quotation
+      color: $lc
   &.black-and-white
+    $lc: lighten($fg1, 25)
     a
-      $lc: lighten($fg1, 25)
       color: $lc
       border-bottom: 2px $lc solid
       &:hover
@@ -233,6 +235,8 @@ $fg6: #333
       &:hover
         background: $bg3 !important
         color: $fg3 !important
+    .block-quotation
+      color: $fg3 !important
   &.level-4
     .cta.big
       border-color: $fg4
@@ -243,6 +247,8 @@ $fg6: #333
       .column
         display: flex
         align-items: center
+    .block-quotation
+      color: $fg4 !important
         
 .homepage-section
   &.level-1, &.level-2, &.level-3, &.level-4
@@ -271,6 +277,8 @@ p
   padding-bottom: 1.3rem
 p.block-img
   padding-bottom: 0
+  width: 100%
+  height: auto
 .column
   p.block-img
     padding-bottom: 1rem
@@ -278,6 +286,13 @@ table
   p
     padding: 0.5rem 0
     font-size: 0.9em
+
+
+    
+  
+// .page.level-2
+  // a
+    // text-decoration: underline !important
 
 .textslice
   h2
@@ -307,6 +322,9 @@ table
     max-width: 100%
     height: auto
 
+// img
+  // height: auto
+  
 .page.level-4
   // [data-name='team work 🛠']
   .back

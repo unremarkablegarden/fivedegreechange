@@ -15,7 +15,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }
+      { rel: 'icon', type: 'image/x-icon', href: 'https://prismic-io.s3.amazonaws.com/fivedegreechange/75666d55-5d55-4d42-bbaf-03b6475bc3b3_favicon.svg' }
     ],
     script: [
       {

@@ -1,0 +1,3249 @@
+<template lang='pug'>
+.mailchimp.container
+  section.section#mc_embed_signup
+    form#mc-embedded-subscribe-form.validate(action='https://health.us3.list-manage.com/subscribe/post?u=e2d6d2c00fd193d5431b473e9&id=244264a68a', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate)
+      #mc_embed_signup_scroll
+        .mc-field-group.has-text-centered
+          //- p Join the mailing list
+          p Join my private mailing list to receive a monthly bite-sized email with tools, tips, and techniques to help you get better at changing your habits, behaviours, and thinking.
+          
+          .formy
+            input#mce-FNAME(type='text', name='FNAME', placeholder='First name').input.name
+            input.required.email#mce-EMAIL(type='email', name='EMAIL', placeholder='Email address').input
+            input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
+        .clear
+          #mce-responses.clear
+            .response#mce-error-response(style='display:none')
+            .response#mce-success-response(style='display:none')
+        div(style='position: absolute; left: -5000px;', aria-hidden='true')
+          input(type='text', name='b_e2d6d2c00fd193d5431b473e9_244264a68a', tabindex='-1')
+
+</template>
+
+<script>
+export default {
+  name: 'Mailchimp'
+}
+</script>
+
+<style lang='sass' scoped>
+#mc_embed_signup
+  width: 480px
+  margin: 0 auto
+  padding-bottom: 1vw
+  padding-top: 0
+.mailchimp
+  // padding-bottom: 5vw
+  font-size: 0.9rem
+.section
+  margin-top: 0
+  // padding-top: 6vw
+  // padding-bottom: 7vw
+  // border-top: 1px black solid
+  // box-shadow: 0 0 100px 50px rgba(0,0,0,.1)
+  // background: rgba(0,0,0,0.07)
+  // border-width: 1px 0
+*:focus
+  outline: none
+  box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05)
+  border-color: #aaa
+#mc-embedded-subscribe
+  background: #f5f5f5
+  border-radius: 0 0.5em 0.5em 0
+  &:hover
+    background: black
+    color: white
+#mc-embedded-subscribe, .input
+  border: 1.3px rgba(0,0,0,0.6) solid
+.name
+  // margin-right: 6px
+  width: 120px
+  border-right: 0
+  border-radius: 0.5em 0 0 0.5em
+.email
+  width: 180px
+  border-right: 0
+  border-radius: 0
+.formy
+  // display: flex
+  color: black
+  *
+    font-family: 'gtmono', monospace
+    letter-spacing: -0.05em
+    line-height: 1.5em
+    box-shadow: 0
+    font-size: 0.9rem
+.input::placeholder
+  color: rgba(0,0,0,0.6)
+</style><template lang='pug'>
+  .slice.table-slice
+    table.table
+      tr.row(v-for='row in slice.items')
+        td.cell
+          prismic-rich-text(:field='row.left')
+        td.cell
+          prismic-rich-text(:field='row.right')
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'table-slice'
+}
+</script>
+
+<style lang='sass' scoped>
+.table-slice
+  margin: 2vw 3vw 6vw
+  clear: both
+  float: none
+table
+  width: 100%
+table, td
+  background: transparent
+  border: 2px rgba(0,0,0,0.3) solid
+
+</style><template lang='pug'>
+  .slice.checklist
+    prismic-rich-text(:field='slice.primary.list', v-if='slice.primary.list.length')
+    
+    
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'checlist-slice'
+}
+</script>
+
+<style lang='sass'>
+  .checklist
+    clear: both
+    float: none
+    ul
+      columns: revert
+      list-style: none
+      margin-left: 4rem
+      margin-bottom: 1rem
+      margin-top: 1rem
+      font-family: 'gt', sans-serif
+      width: 66%
+      li
+        list-style: none
+        font-size: 1.25rem
+        margin-bottom: 0.85rem
+        line-height: 1.8rem
+        letter-spacing: 0rem
+        // list-style: disc
+        &:before
+          content: '✓ '
+          opacity: 0.6
+          margin-left: -1.2em
+          padding-right: 0.2em
+</style><template lang='pug'>
+  .slice.embeds
+    .embed(v-for='embed in slice.primary.html')
+      div(v-html='embed.text')
+</template>
+
+
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'embed-slice'
+}
+</script>
+
+<style lang='sass' scoped>
+
+</style><template lang='pug'> 
+  .post-part.single.container
+    blockquote(:class='slice.primary.align.toLowerCase()').block-quotation.
+      {{ $prismic.asText(slice.primary.quote) }}
+    
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'quote-slice'
+}
+</script>
+
+<style lang="sass" scoped>
+.block-quotation
+  // margin-bottom: 2rem
+  // margin: 2rem 12rem 3rem 6rem
+  padding-top: 1rem
+  font-size: 3.6vw
+  line-height: 1.2em
+  letter-spacing: -0.06em
+  display: inline-block
+  font-style: italic
+  color: #FF3F16
+  // color: #6C91F7
+  // opacity: 0.45
+  &.right
+    margin: -1rem 0 1.7rem 2rem
+    float: right
+    width: 40%
+  &.left
+    float: left
+    margin: -1rem 2rem 1.7rem 0
+    width: 30%
+  &.center
+    width: 100%
+    text-align: center
+    padding: 3vw 0 4vw
+    margin: 4vw 0
+    // background: rgba(0,0,0,0.1)
+    color: rgba(0,0,0,0.9)
+    border: 2px rgba(0,0,0,0.2) solid
+    border-left: 0
+    border-right: 0
+    line-height: 1.8em
+  
+  &:before
+    content: "»"
+    opacity: 0.5
+    padding-right: 0.2em
+  &:after
+    content: "«"
+    opacity: 0.5
+    padding-left: 0.2em
+    padding-right: 0.5em
+.block-citation
+  display: inline-block
+  font-style: italic
+  border-left: solid #B4B4B4 4px
+  // padding-left: 10px
+
+@media screen and (min-width: 975px)
+  .block-quotation
+    // width: 130%
+    // margin: 0 -15% 2rem -15%
+    // font-size: 30px
+    // padding: 0
+  .block-citation
+    // margin: 20px 0
+</style><template lang='pug'> 
+  .post-part.single.container.testimonials
+    h2 {{ $prismic.asText(slice.primary.testimonials_title) }}
+    //- xmp {{  }}
+    .columns.is-multiline.is-8.is-variable
+      .testimonial(v-for='item in slice.items').column.is-6
+        .columns.is-variable.is-3.is-mobile
+          .column.is-4
+            prismic-image(v-if='item.image.url', :field='item.image').image
+            .name {{ item.name }}
+          .column
+            blockquote.block-quotation.
+              {{ $prismic.asText(item.quote) }}
+            
+            
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'quote-slice'
+}
+</script>
+
+<style lang="sass" scoped>
+
+.testimonials
+  // background: blue
+  
+.testimonial
+  margin-top: 1rem
+  margin-bottom: 1rem  
+
+.name
+  // &:before
+    // content: '— '
+  font-size: 1.3vw
+  padding-top: 0.5em
+  display: block
+  font-weight: bold
+  letter-spacing: -0.04em
+  line-height: 1.43em
+  // padding-left: 2em
+  // float: right
+  
+.image
+  width: 100%
+  height: auto
+  border-radius: 1rem
+  margin-top: 0.3rem
+  
+.block-quotation
+  // margin-bottom: 2rem
+  // margin: 2rem 12rem 3rem 6rem
+  // padding-top: 1rem
+  // margin: -1rem 0 1.7rem 2rem
+  // float: right
+  // width: 40%
+  font-size: 1.4vw
+  line-height: 1.5em
+  letter-spacing: -0.06em
+  
+  display: inline-block
+  font-style: italic
+  // margin-top: 1rem
+  // color: #FF3F16
+  // color: #6C91F7
+  // opacity: 0.45
+  
+  &:before
+    display: inline-block
+    content: "»"
+    // margin-left: -2rem
+    opacity: 0.4
+    font-size: 1.2em
+    padding-right: 0.25em
+  &:after
+    display: inline-block
+    content: "«"
+    opacity: 0.4
+    padding-left: 0.25em
+.block-citation
+  display: inline-block
+  font-style: italic
+  border-left: solid #B4B4B4 4px
+  // padding-left: 10px
+
+@media screen and (min-width: 975px)
+  .block-quotation
+    // width: 130%
+    // margin: 0 -15% 2rem -15%
+    // font-size: 30px
+    // padding: 0
+  .block-citation
+    // margin: 20px 0
+</style><template>
+  <div class='post-part single container'>
+    <prismic-rich-text class="textslice" :field="slice.primary.text"/>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'text-slice'
+}
+</script>
+
+<style lang="sass">
+.textslice
+  margin: 6vw 0
+.blog
+  ul, ol
+    margin-left: 4rem
+    margin-bottom: 2rem
+    margin-top: 1rem
+    font-family: 'gt', sans-serif
+    width: 66%
+    li
+      font-size: 1.25rem
+      margin-bottom: 0.85rem
+      line-height: 1.8rem
+      letter-spacing: 0rem
+      list-style: disc
+      
+.page
+  ul, ol
+    // margin: 2rem 4rem 1rem
+    margin: 1rem 4rem 3rem
+    font-family: 'gt', sans-serif
+    width: calc(100% - 8rem)
+    columns: 2
+    column-gap: 7vw
+    li
+      font-size: 0.95em
+      margin-bottom: 0.9em
+      line-height: 1.66em
+      letter-spacing: 0em
+      list-style: disc
+
+</style><template lang='pug'>
+  .level-component
+    .inner
+      //- xmp {{ slice.primary.ref }}
+      prismic-rich-text.title(:field="slice.primary.title", v-if='slice.primary.title.length')
+      prismic-rich-text.title(:field="slice.primary.subtitle", v-if='slice.primary.subtitle.length')
+      
+      .inside
+        .content(v-for='(item, i) in slice.items', :key='i')      
+          .alt(v-if='strong(item)').cta-home
+            prismic-rich-text(:field='item.content')
+          div(v-else)
+            prismic-rich-text(:field='item.content')
+      
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'level',
+  methods: {
+    strong (item) {
+      let spans = item.content[0].spans || false
+      if (spans.length) {
+        spans = spans[0].type || false
+        if (spans === 'strong') spans = true
+        else spans = false
+      } else {
+        spans = false
+      }
+      return spans
+    }
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+.cta
+  margin-top: 3em
+// .level-component
+// .inner
+  // background: #000
+// .textslice
+//   a
+//     text-decoration: underline
+</style><template lang='pug'>
+  .slice.cols
+    .columns.is-12.is-variable.is-7
+      .column(v-for='item in slice.items')
+        prismic-rich-text(:field='item.column')
+        //- xmp {{ item.column }}
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'columns-slice'
+}
+</script>
+
+<style lang='sass' scoped>
+  .cols
+    padding-top: 4vw
+    padding-bottom: 2vw
+  .slice, .clear
+    clear: both
+    float: none
+</style><template>
+  <div>
+    <!-- xmp {{ slice.primary }} -->
+    <div :class="'post-part single container post-image ' + align">
+      <p class="block-img" :class="size">
+        <prismic-image :field="img"/>
+      </p>
+      <template v-if="$prismic.asText(caption) != ''">
+        <p>
+          <span class="image-label">{{ $prismic.asText(caption) }}</span>
+        </p>
+      </template>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'image-caption-slice',
+  data: function() {
+    return {
+      img: '',
+      caption: '',
+      size: '',
+      align: '',
+      imgClass: '',
+    }
+  },
+  created () {
+    this.img = this.slice.primary.image
+    this.caption = this.slice.primary.caption
+    this.size = this.slice.slice_label
+    let align = this.slice.primary.align
+    if (align === 'Left') align = 'left'
+    else if (align === 'Right') align = 'right'
+    else if (align === 'Center (full width)') align = 'center'
+    // else align = 'center'
+    this.align = align
+    this.imgClass = this.size + ' ' + this.align
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+
+.post-image
+  // margin-bottom: 24px
+  margin-top: .5rem
+  margin-bottom: 1rem
+  img
+    border-radius: 1rem
+  max-width: 40%
+  float: right
+  margin-left: 3rem
+  &.right
+    max-width: 40%
+    float: right
+    margin-left: 3rem
+  &.left
+    max-width: 40%
+    float: left
+    margin-right: 3rem
+    margin-left: 0
+  &.center
+    max-width: 100%
+    float: none
+    clear: both
+    margin-left: 0
+    
+
+  
+
+.image-label
+  display: block
+  text-align: center
+  font-style: italic
+  font-size: 0.8rem
+  margin-top: 0.2rem
+  // color: #949494
+  color: rgba(0,0,0,0.36)
+
+// // Media Queries
+// @media (max-width: 767px)
+//   .blog-header
+//     padding: 5px
+//     .wrapper
+//       width: 80%
+
+// @media screen and (min-width: 768px)
+//   // Blog post images
+//   .block-img.emphasized
+//     width: 130%
+//     margin: 0 -15% 2rem -15%
+</style><template lang='pug'>
+  .slice(:class='ctaSize')
+      prismic-rich-text(:field='slice.primary.text', v-if='slice.primary.text.length')
+      prismic-rich-text(:field='slice.primary.button', v-if='slice.primary.button.length').cta-button.alt
+    
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'cta-slice',
+  computed: {
+    ctaSize () {
+      if (this.slice.primary.size) return 'cta small'
+      else return 'cta big'
+    }
+  }
+}
+</script>
+
+<style lang='sass'>
+.cta
+  // display: inline-block
+  // position: absolute
+  // left: 0
+  // width: 100vw
+  margin-bottom: 6vw
+  &.big
+    // background: 
+    $c: rgba(0,0,0,0.2)
+    border: 2px $c solid
+    margin-top: 6vw
+    margin-bottom: 3vw
+    // padding: 5vw 3vw 5vw
+    padding: 3vw 3vw 2vw
+    border-radius: 1rem
+    text-align: center
+  .cta-button
+    margin-top: 1vw
+    a, nuxt-link
+      // font-family: 'gtmono', sans-serif
+      // letter-spacing: 0.03rem
+      // background: transparent
+      padding: 0.5em 1em 0.6em !important
+      border-radius: 5px
+      border: 0 !important
+      // font-family: 'gt', sans-serif
+      // color: black
+      transition: all 150ms ease-in
+      &:hover
+        // color: white
+        // background: black
+        opacity: 1
+        transition: all 150ms ease-out
+        transform: scale(1.1) !important
+    
+</style><template>
+    <div>
+        <section v-for="(slice, index) in slices" :key="'slice-' + index" :class='"slice-" + slice.slice_type'>
+            <template v-if="slice.slice_type === 'level'">
+                <level :slice="slice"></level>
+            </template>
+            <template v-if="slice.slice_type === 'text'">
+                <text-slice :slice="slice"></text-slice>
+            </template>
+            <template v-else-if="slice.slice_type === 'quote'">
+                <quote-slice :slice="slice"></quote-slice>
+            </template>
+            <template v-else-if="slice.slice_type === 'image_with_caption'">
+                <image-caption-slice :slice="slice"></image-caption-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'testimonial'">
+                <testimonial-slice :slice="slice"></testimonial-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'table'">
+                <table-slice :slice="slice"></table-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'check_list'">
+                <checklist-slice :slice="slice"></checklist-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'call_to_action'">
+                <cta-slice :slice="slice"></cta-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'columns'">
+                <columns-slice :slice="slice"></columns-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'embed'">
+                <embed-slice :slice="slice"></embed-slice>
+            </template>
+        </section>
+    </div>
+</template>
+
+<script>
+// Imports for all slices
+// const Level = () => import("../components/slices/Level.vue");
+const QuoteSlice = () => import("../components/slices/QuoteSlice.vue");
+const TextSlice = () => import("../components/slices/TextSlice.vue");
+const ImageCaptionSlice = () => import("../components/slices/ImageCaptionSlice.vue");
+
+const TestimonialSlice = () => import("../components/slices/TestimonialSlice.vue");
+const TableSlice = () => import("../components/slices/TableSlice.vue");const ChecklistSlice = () => import("../components/slices/ChecklistSlice.vue");const CtaSlice = () => import("../components/slices/CtaSlice.vue");
+const ColumnsSlice = () => import("../components/slices/ColumnsSlice.vue");
+const EmbedSlice = () => import("../components/slices/EmbedSlice.vue");
+
+
+export default {
+  props: ['slices'],
+  name: 'slices-block',
+  components: {
+    // Level,
+    QuoteSlice,
+    TextSlice,
+    ImageCaptionSlice,
+    TestimonialSlice,
+    TableSlice,
+    ChecklistSlice,
+    CtaSlice,
+    ColumnsSlice,
+    EmbedSlice
+  },
+  methods: {
+    //   sliceClass(slice) {
+    //       if (
+    //             slice.slice_type === 'text' || 
+    //             slice.slice_type === 'testimonial'
+    //         ) {
+    //           return 'slice-border'
+    //         }
+    //         else {
+    //             return slice.slice_type
+    //         }
+    //   }
+  }
+}
+</script><template lang='pug'>
+  footer.footer
+    
+    mailchimp
+    
+    hr
+    
+    .links1
+      //- a(:href='email', taget='_blank') email
+      nuxt-link(to='/page/contact/') contact
+      span •
+      nuxt-link(to='/the-blog/') blog
+      span •
+      a(href='https://www.instagram.com/5degreechange/', taget='_blank') instagram
+      span •
+      a(href='https://www.linkedin.com/in/carlolofekman/', taget='_blank') linkedin
+    .links2
+      nuxt-link(to='/page/imprint/') imprint
+      span •
+      nuxt-link(to='/page/terms-of-service/') terms of service
+      
+    .txt
+      span five degree change
+      br
+      span Schudomastrasse 26
+      br
+      span 12055 Berlin
+      
+      
+</template>
+
+<script>
+import Mailchimp from '~/components/Mailchimp.vue'
+
+export default {
+  name: 'FooterPrismic',
+  components: {
+    Mailchimp
+  },
+  data: function () {
+    return {
+      email: 'mailto:olof@fivedegreechange.com'
+    }
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+  .footer
+    background: rgba(0,0,0,0.07)
+    text-align: center
+    font-size: 0.8rem
+    letter-spacing: 0
+    line-height: 1.5em
+    opacity: 0.8
+    padding-bottom: 4vw
+    .txt
+      margin-top: 1.2vw
+    hr
+      margin: 1.5vw auto 2.5vw
+      padding: 0
+      // width: 66%
+      width: 420px
+      border: 0
+      background: rgba(255,255,255,0.5)
+      border-radius: 3px
+      height: 2px
+      
+    a
+      color: rgba(0,0,0,0.9)
+      border-bottom: 1px transparent solid
+      text-transform: uppercase
+      display: inline-block
+      margin: 0 0.5rem
+      background: transparent !important
+      &:hover
+        transform: none
+        background: none
+        color: black
+        border-bottom: 1px black solid
+</style><template lang='pug'>
+  .inner
+    nuxt-link(:to='link').blog-link
+      //- div
+      .blog-post
+        .meta.alt
+          .author(v-if='post.data.author_name') {{ post.data.author_name }}
+          .author(v-else) Olof Ekman
+          .date {{ formattedDate }}
+        h2 {{ $prismic.asText(post.data.title) }}
+        
+        .text(v-if='post.data.excerpt.length')
+          prismic-rich-text(:field="post.data.excerpt")
+        p.text(v-else) {{ getFirstParagraph(post) }}
+        a.more.alt Continue reading &rarr;
+        
+</template>
+
+<script>
+import LinkResolver from "~/plugins/link-resolver.js"
+
+export default {
+  props: ['post'],
+  data: function() {
+    return {
+      link: '',
+      formattedDate: '',
+    }
+  },
+  name: 'blog-widget',
+  methods: {
+    // Function to get the first paragraph of text in a blog post and limit the displayed text at 300 characters
+    getFirstParagraph (post) {
+      const textLimit = 300;
+      const slices = post.data.body;
+      let firstParagraph = '';
+      let haveFirstParagraph = false;
+
+      slices.map(function(slice) {
+        if (!haveFirstParagraph && slice.slice_type == "text") {
+          slice.primary.text.forEach(function(block){
+            if (block.type == "paragraph" && !haveFirstParagraph) {
+              firstParagraph += block.text;
+              haveFirstParagraph = true;
+            }
+          });
+        }
+      });
+      
+      const limitedText = firstParagraph.substr(0, textLimit)
+
+      // post.data.
+
+      if (firstParagraph.length > textLimit) {
+        return limitedText.substr(0, limitedText.lastIndexOf(' ')) + '...';
+      }
+      else {
+        return firstParagraph;
+      }
+    },
+  },
+  created () {
+    this.link = LinkResolver(this.post),
+    this.formattedDate = Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(this.post.data.date))
+  },
+}
+</script>
+
+<style lang="sass" scoped>
+  $blogtext: #39507F
+  a
+    background: transparent
+    // text-decoration: underline
+    transition: all 200ms
+    &:hover
+      transform: none
+      .blog-post
+        transition: all 200ms
+        // background: #f0f0f0
+        background: #C3F4D9
+  .blog-link
+    width: 100% !important
+  .blog-post
+    width: 100% !important
+    padding: 1em 1.4rem
+    display: inline-block
+    border-radius: 1em
+    border: 3px $blogtext solid
+  .meta
+    color: #39507F
+    float: right
+    font-size: 0.95rem
+    line-height: 1.25rem
+    text-align: right
+  a.more
+    margin-top: 1.7rem
+    font-size: 1.15rem
+    color: $blogtext
+    padding-left: 0
+    margin-left: 0
+  .text
+    font-size: 0.9rem
+    line-height: 1.2rem
+  h2
+    font-size: 2rem
+    margin-bottom: 0.5em
+    margin-top: 2.8rem
+    width: 100%
+</style><template lang="pug">
+#blog
+  h1 Blog 
+  //- xmp {{ $prismic }}
+  //- .blog-main(v-if='posts.length !== 0').viewer.columns.is-multiline
+    section.blog-post(v-for='post in posts', :key='post.id', v-bind:post='post').item.column.is-one-third
+      .widget
+        blog-widget(:post='post')
+  //- .blog-main(v-else)
+    p No Posts published at this time.
+</template>        
+        
+<script>
+import BlogWidget from '~/components/BlogWidget.vue'
+// import Level from '~/components/slices/Level.vue'
+// import FooterPrismic from '~/components/FooterPrismic.vue'
+
+if (process.browser) {
+  var Masonry = require('masonry-layout');
+  var ImagesLoaded = require('imagesloaded');
+}
+
+
+export default {
+  name: 'Blog',
+  components: {
+    BlogWidget,
+    // Level,
+    // FooterPrismic
+  },
+  data() {
+    return {
+      selector: ".viewer",
+      options: {
+        columnWidth: ".is-one-third",
+        percentPosition: true,
+        gutter: 0,
+        itemSelector: ".item",
+        // horizontalOrder: true
+      }
+    };
+  },
+  methods: {
+    loaded() {
+      // all images are loaded
+      ImagesLoaded(this.selector, () => {
+        this.$emit("masonry-images-loaded");
+        // activate mansonry grid
+        let masonry = new Masonry(this.selector, this.options);
+        this.$emit("masonry-loaded", masonry);
+      });
+    }
+  },
+  watch: {
+    data () {
+      // this.loaded()
+    }
+  },
+  mounted () {
+    // this.loaded()
+  },
+  computed: {
+    HALF () {
+      return 200
+    }
+  },
+  transition: {
+    // name: 'home',
+    // mode: 'out-in'
+    // mode: 'in-out'
+  },
+  // head () {
+  //   return {
+  //     title: 'Blog',
+  //   }
+  // },
+  async asyncData({ $prismic, error }) {
+    try {
+      // const homepage = (await $prismic.api.getSingle('homepage')).data
+
+      const blogPosts = await $prismic.api.query(
+        $prismic.predicates.at("document.type", "post"),
+        { orderings : '[my.post.date desc]' }
+      )
+      console.log(blogPosts);
+      
+      // console.log(homepage.body)
+      // homepage.body.forEach(slice => {
+      //   if (slice.primary.subtitle.length) {
+      //     // let subtitle = 
+      //     // subtitle = 'hello'
+      //     slice.primary.subtitle[0].text = slice.primary.subtitle[0].text.replace(' — ', ' —\n')
+      //   }
+      // })
+
+      return {
+        // homepage,
+        posts: blogPosts.results,
+        // image: homepageContent.image.url,
+      }
+    } catch (e) {
+      // Returns error page
+      // error({ statusCode: 404, message: 'Page not found' })
+      error({ statusCode: 303, message: JSON.stringify(e) })
+    }
+  },
+}
+</script>
+
+<style lang="sass" scoped>
+  .is-one-third
+    margin-bottom: 0.5rem
+</style><template lang="pug">
+  nuxt-link(to='/')#logo
+    .bg
+      span &nbsp;
+      //- img(src='~assets/img/logo-bg.svg')
+    .fg
+      img(src='~assets/img/logo.svg')
+</template>
+
+<style lang="sass">
+#logo
+  // position: absolute
+  position: fixed
+  right: 3vw
+  top: 3vw
+  width: 18vw
+  z-index: 999
+  transform: scale(0.8) translate(20%, -25%)
+  &:hover
+    background: transparent
+  .bg 
+    // img
+    position: relative
+    top: 0vw
+    right: 0vw
+    width: 17vw
+    height: 18vw
+    z-index: 88
+    // background: rgba(10,10,10,0.1)
+    background: rgba(150,150,150,0.15)
+    mask: url(~assets/img/logo-bg.svg) no-repeat center
+    backdrop-filter: blur(11px)
+    // border: 1px white solid
+    // border: 1px blue solid
+  .fg img
+    position: relative
+    top: 1.3vw
+    right: -2vw
+    width: 15vw
+    height: auto
+    z-index: 99
+    opacity: 0.9
+  .bg
+    position: absolute
+    
+</style>
+<template lang="pug">
+  #menu(:class='{ white: isDark }')
+    nav.navbar
+      a.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', data-target='navbarBasicExample', @click='toggle', :class='{ "is-active": open }')
+        span(aria-hidden='true')
+        span(aria-hidden='true')
+        span(aria-hidden='true')
+    .inner(:class='{ "is-active": open }').alt
+      //- nuxt-link(to='/').menu-item Home
+      .txt Work with me
+      .pad
+        nuxt-link(to='/page/habit-experiment').menu-item The 1-Month Habit Experiment
+        nuxt-link(to='/page/coaching').menu-item 1 on 1 coaching
+        nuxt-link(to='/page/team-work').menu-item Team development
+      nuxt-link(to='/').menu-item Home
+      nuxt-link(to='/page/olof').menu-item About
+      nuxt-link(to='/the-blog/').menu-item Blog
+      nuxt-link(to='/page/contact').menu-item Get in touch
+            
+</template>
+
+<script>
+export default {
+  name: "Menu",
+  data: function() {
+    return {
+      open: false,
+      isDark: false
+    }
+  },
+  watch: {
+    $route: function (r) {
+      // console.log('route change')
+      // console.log(r);
+      this.pathCheck()
+      this.open = false
+    }
+  },
+  mounted () {
+    this.pathCheck()
+  },
+  methods: {
+    pathCheck (r) {
+      let route = r
+      if (!route) route = this.$route.path
+      
+      const darkPaths = [
+        '/page/coaching',
+        '/page/team-work'
+      ]
+      if (darkPaths.includes(route)) {
+        this.isDark = true
+      } else {
+        this.isDark = false
+      }
+    },
+    toggle () {
+      this.open = !this.open
+    }
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+#menu
+  position: fixed
+  top: 1vw
+  left: 1vw
+  z-index: 999
+.navbar-burger
+  display: block
+  height: 2rem
+  width: 2rem
+  transform: scale(2) translate(0.5vw, 0.5vw)
+  &:hover
+    transform: scale(2) translate(0.5vw, 0.5vw) !important
+.navbar
+  background: transparent !important
+a, a:hover
+  background: transparent !important
+  transform: scale(1)
+  color: rgba(0,0,0,0.8)
+.inner
+  $w: 300px
+  transform: translate3d(-$w,0,0)
+  transition: all 200ms ease-out
+  &.is-active
+    transform: translate3d(0,0,0)
+    transition: all 200ms ease-out
+  // background: rgba(100,100,100,0.15)
+  background: rgba(0,0,0,0.01)
+  border-right: 2px black solid
+  // background: rgba(255,255,255,0.1)
+  backdrop-filter: blur(11px)
+  position: fixed
+  left: 0
+  top: 0
+  width: $w
+  height: 100vh
+  padding: 6rem 1rem
+.menu-item
+  display: block
+  line-height: 1.3em
+  font-weight: normal
+  // margin-bottom: 1.3em
+  padding: 0.6em 0
+  margin-left: 1em
+  opacity: 0.86
+  &:before
+    content: '✓ '
+    opacity: 0
+    margin-left: -1.2em
+    // overflow: hidden
+    // width: 0
+    // display: inline-block
+  &:hover
+    opacity: 1
+    &:before
+      opacity: 0.5
+      
+    // padding-left: 0.5em
+    // width: 1em
+    // &:before
+      
+.txt
+  // text-decoration: underline
+  margin-bottom: 0.3em
+  opacity: 0.86
+  text-transform: uppercase
+  font-size: 0.8em
+  margin-left: 1em
+.pad
+  margin-left: 1em
+
+.white
+  *
+    color: rgba(255,255,255,0.8)
+  .inner
+    background: rgba(255,255,255,0.05)
+    border-color: white
+    a:hover
+      color: white
+
+</style><template>
+<div>
+  <div class="typeform-widget" data-url="https://form.typeform.com/to/rx9tqMv4" data-transparency="100" style="width: 100%; height: 500px;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> 
+  <div style="font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;"> powered by <a href="https://admin.typeform.com/signup?utm_campaign=rx9tqMv4&utm_source=typeform.com-01EJJKC4472M15K1QPNAQF6CMY-free&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN" style="color: #999" target="_blank">Typeform</a> </div>
+</div>
+</template>
+<template lang='pug'>
+.mailchimp.container
+  section.section#mc_embed_signup
+    form#mc-embedded-subscribe-form.validate(action='https://health.us3.list-manage.com/subscribe/post?u=e2d6d2c00fd193d5431b473e9&id=244264a68a', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate)
+      #mc_embed_signup_scroll
+        .mc-field-group.has-text-centered
+          //- p Join the mailing list
+          p Join my private mailing list to receive a monthly bite-sized email with tools, tips, and techniques to help you get better at changing your habits, behaviours, and thinking.
+          
+          .formy
+            input#mce-FNAME(type='text', name='FNAME', placeholder='First name').input.name
+            input.required.email#mce-EMAIL(type='email', name='EMAIL', placeholder='Email address').input
+            input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
+        .clear
+          #mce-responses.clear
+            .response#mce-error-response(style='display:none')
+            .response#mce-success-response(style='display:none')
+        div(style='position: absolute; left: -5000px;', aria-hidden='true')
+          input(type='text', name='b_e2d6d2c00fd193d5431b473e9_244264a68a', tabindex='-1')
+
+</template>
+
+<script>
+export default {
+  name: 'Mailchimp'
+}
+</script>
+
+<style lang='sass' scoped>
+#mc_embed_signup
+  width: 480px
+  margin: 0 auto
+  padding-bottom: 1vw
+  padding-top: 0
+.mailchimp
+  // padding-bottom: 5vw
+  font-size: 0.9rem
+.section
+  margin-top: 0
+  // padding-top: 6vw
+  // padding-bottom: 7vw
+  // border-top: 1px black solid
+  // box-shadow: 0 0 100px 50px rgba(0,0,0,.1)
+  // background: rgba(0,0,0,0.07)
+  // border-width: 1px 0
+*:focus
+  outline: none
+  box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05)
+  border-color: #aaa
+#mc-embedded-subscribe
+  background: #f5f5f5
+  border-radius: 0 0.5em 0.5em 0
+  &:hover
+    background: black
+    color: white
+#mc-embedded-subscribe, .input
+  border: 1.3px rgba(0,0,0,0.6) solid
+.name
+  // margin-right: 6px
+  width: 120px
+  border-right: 0
+  border-radius: 0.5em 0 0 0.5em
+.email
+  width: 180px
+  border-right: 0
+  border-radius: 0
+.formy
+  // display: flex
+  color: black
+  *
+    font-family: 'gtmono', monospace
+    letter-spacing: -0.05em
+    line-height: 1.5em
+    box-shadow: 0
+    font-size: 0.9rem
+.input::placeholder
+  color: rgba(0,0,0,0.6)
+</style><template lang='pug'>
+  .slice.table-slice
+    table.table
+      tr.row(v-for='row in slice.items')
+        td.cell
+          prismic-rich-text(:field='row.left')
+        td.cell
+          prismic-rich-text(:field='row.right')
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'table-slice'
+}
+</script>
+
+<style lang='sass' scoped>
+.table-slice
+  margin: 2vw 3vw 6vw
+  clear: both
+  float: none
+table
+  width: 100%
+table, td
+  background: transparent
+  border: 2px rgba(0,0,0,0.3) solid
+
+</style><template lang='pug'>
+  .slice.checklist
+    prismic-rich-text(:field='slice.primary.list', v-if='slice.primary.list.length')
+    
+    
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'checlist-slice'
+}
+</script>
+
+<style lang='sass'>
+  .checklist
+    clear: both
+    float: none
+    ul
+      columns: revert
+      list-style: none
+      margin-left: 4rem
+      margin-bottom: 1rem
+      margin-top: 1rem
+      font-family: 'gt', sans-serif
+      width: 66%
+      li
+        list-style: none
+        font-size: 1.25rem
+        margin-bottom: 0.85rem
+        line-height: 1.8rem
+        letter-spacing: 0rem
+        // list-style: disc
+        &:before
+          content: '✓ '
+          opacity: 0.6
+          margin-left: -1.2em
+          padding-right: 0.2em
+</style><template lang='pug'>
+  .slice.embeds
+    .embed(v-for='embed in slice.primary.html')
+      div(v-html='embed.text')
+</template>
+
+
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'embed-slice'
+}
+</script>
+
+<style lang='sass' scoped>
+
+</style><template lang='pug'> 
+  .post-part.single.container
+    blockquote(:class='slice.primary.align.toLowerCase()').block-quotation.
+      {{ $prismic.asText(slice.primary.quote) }}
+    
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'quote-slice'
+}
+</script>
+
+<style lang="sass" scoped>
+.block-quotation
+  // margin-bottom: 2rem
+  // margin: 2rem 12rem 3rem 6rem
+  padding-top: 1rem
+  font-size: 3.6vw
+  line-height: 1.2em
+  letter-spacing: -0.06em
+  display: inline-block
+  font-style: italic
+  color: #FF3F16
+  // color: #6C91F7
+  // opacity: 0.45
+  &.right
+    margin: -1rem 0 1.7rem 2rem
+    float: right
+    width: 40%
+  &.left
+    float: left
+    margin: -1rem 2rem 1.7rem 0
+    width: 30%
+  &.center
+    width: 100%
+    text-align: center
+    padding: 3vw 0 4vw
+    margin: 4vw 0
+    // background: rgba(0,0,0,0.1)
+    color: rgba(0,0,0,0.9)
+    border: 2px rgba(0,0,0,0.2) solid
+    border-left: 0
+    border-right: 0
+    line-height: 1.8em
+  
+  &:before
+    content: "»"
+    opacity: 0.5
+    padding-right: 0.2em
+  &:after
+    content: "«"
+    opacity: 0.5
+    padding-left: 0.2em
+    padding-right: 0.5em
+.block-citation
+  display: inline-block
+  font-style: italic
+  border-left: solid #B4B4B4 4px
+  // padding-left: 10px
+
+@media screen and (min-width: 975px)
+  .block-quotation
+    // width: 130%
+    // margin: 0 -15% 2rem -15%
+    // font-size: 30px
+    // padding: 0
+  .block-citation
+    // margin: 20px 0
+</style><template lang='pug'> 
+  .post-part.single.container.testimonials
+    h2 {{ $prismic.asText(slice.primary.testimonials_title) }}
+    //- xmp {{  }}
+    .columns.is-multiline.is-8.is-variable
+      .testimonial(v-for='item in slice.items').column.is-6
+        .columns.is-variable.is-3.is-mobile
+          .column.is-4
+            prismic-image(v-if='item.image.url', :field='item.image').image
+            .name {{ item.name }}
+          .column
+            blockquote.block-quotation.
+              {{ $prismic.asText(item.quote) }}
+            
+            
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'quote-slice'
+}
+</script>
+
+<style lang="sass" scoped>
+
+.testimonials
+  // background: blue
+  
+.testimonial
+  margin-top: 1rem
+  margin-bottom: 1rem  
+
+.name
+  // &:before
+    // content: '— '
+  font-size: 1.3vw
+  padding-top: 0.5em
+  display: block
+  font-weight: bold
+  letter-spacing: -0.04em
+  line-height: 1.43em
+  // padding-left: 2em
+  // float: right
+  
+.image
+  width: 100%
+  height: auto
+  border-radius: 1rem
+  margin-top: 0.3rem
+  
+.block-quotation
+  // margin-bottom: 2rem
+  // margin: 2rem 12rem 3rem 6rem
+  // padding-top: 1rem
+  // margin: -1rem 0 1.7rem 2rem
+  // float: right
+  // width: 40%
+  font-size: 1.4vw
+  line-height: 1.5em
+  letter-spacing: -0.06em
+  
+  display: inline-block
+  font-style: italic
+  // margin-top: 1rem
+  // color: #FF3F16
+  // color: #6C91F7
+  // opacity: 0.45
+  
+  &:before
+    display: inline-block
+    content: "»"
+    // margin-left: -2rem
+    opacity: 0.4
+    font-size: 1.2em
+    padding-right: 0.25em
+  &:after
+    display: inline-block
+    content: "«"
+    opacity: 0.4
+    padding-left: 0.25em
+.block-citation
+  display: inline-block
+  font-style: italic
+  border-left: solid #B4B4B4 4px
+  // padding-left: 10px
+
+@media screen and (min-width: 975px)
+  .block-quotation
+    // width: 130%
+    // margin: 0 -15% 2rem -15%
+    // font-size: 30px
+    // padding: 0
+  .block-citation
+    // margin: 20px 0
+</style><template>
+  <div class='post-part single container'>
+    <prismic-rich-text class="textslice" :field="slice.primary.text"/>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'text-slice'
+}
+</script>
+
+<style lang="sass">
+.textslice
+  margin: 6vw 0
+.blog
+  ul, ol
+    margin-left: 4rem
+    margin-bottom: 2rem
+    margin-top: 1rem
+    font-family: 'gt', sans-serif
+    width: 66%
+    li
+      font-size: 1.25rem
+      margin-bottom: 0.85rem
+      line-height: 1.8rem
+      letter-spacing: 0rem
+      list-style: disc
+      
+.page
+  ul, ol
+    // margin: 2rem 4rem 1rem
+    margin: 1rem 4rem 3rem
+    font-family: 'gt', sans-serif
+    width: calc(100% - 8rem)
+    columns: 2
+    column-gap: 7vw
+    li
+      font-size: 0.95em
+      margin-bottom: 0.9em
+      line-height: 1.66em
+      letter-spacing: 0em
+      list-style: disc
+
+</style><template lang='pug'>
+  .level-component
+    .inner
+      //- xmp {{ slice.primary.ref }}
+      prismic-rich-text.title(:field="slice.primary.title", v-if='slice.primary.title.length')
+      prismic-rich-text.title(:field="slice.primary.subtitle", v-if='slice.primary.subtitle.length')
+      
+      .inside
+        .content(v-for='(item, i) in slice.items', :key='i')      
+          .alt(v-if='strong(item)').cta-home
+            prismic-rich-text(:field='item.content')
+          div(v-else)
+            prismic-rich-text(:field='item.content')
+      
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'level',
+  methods: {
+    strong (item) {
+      let spans = item.content[0].spans || false
+      if (spans.length) {
+        spans = spans[0].type || false
+        if (spans === 'strong') spans = true
+        else spans = false
+      } else {
+        spans = false
+      }
+      return spans
+    }
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+.cta
+  margin-top: 3em
+// .level-component
+// .inner
+  // background: #000
+// .textslice
+//   a
+//     text-decoration: underline
+</style><template lang='pug'>
+  .slice.cols
+    .columns.is-12.is-variable.is-7
+      .column(v-for='item in slice.items')
+        prismic-rich-text(:field='item.column')
+        //- xmp {{ item.column }}
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'columns-slice'
+}
+</script>
+
+<style lang='sass' scoped>
+  .cols
+    padding-top: 4vw
+    padding-bottom: 2vw
+  .slice, .clear
+    clear: both
+    float: none
+</style><template>
+  <div>
+    <!-- xmp {{ slice.primary }} -->
+    <div :class="'post-part single container post-image ' + align">
+      <p class="block-img" :class="size">
+        <prismic-image :field="img"/>
+      </p>
+      <template v-if="$prismic.asText(caption) != ''">
+        <p>
+          <span class="image-label">{{ $prismic.asText(caption) }}</span>
+        </p>
+      </template>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'image-caption-slice',
+  data: function() {
+    return {
+      img: '',
+      caption: '',
+      size: '',
+      align: '',
+      imgClass: '',
+    }
+  },
+  created () {
+    this.img = this.slice.primary.image
+    this.caption = this.slice.primary.caption
+    this.size = this.slice.slice_label
+    let align = this.slice.primary.align
+    if (align === 'Left') align = 'left'
+    else if (align === 'Right') align = 'right'
+    else if (align === 'Center (full width)') align = 'center'
+    // else align = 'center'
+    this.align = align
+    this.imgClass = this.size + ' ' + this.align
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+
+.post-image
+  // margin-bottom: 24px
+  margin-top: .5rem
+  margin-bottom: 1rem
+  img
+    border-radius: 1rem
+  max-width: 40%
+  float: right
+  margin-left: 3rem
+  &.right
+    max-width: 40%
+    float: right
+    margin-left: 3rem
+  &.left
+    max-width: 40%
+    float: left
+    margin-right: 3rem
+    margin-left: 0
+  &.center
+    max-width: 100%
+    float: none
+    clear: both
+    margin-left: 0
+    
+
+  
+
+.image-label
+  display: block
+  text-align: center
+  font-style: italic
+  font-size: 0.8rem
+  margin-top: 0.2rem
+  // color: #949494
+  color: rgba(0,0,0,0.36)
+
+// // Media Queries
+// @media (max-width: 767px)
+//   .blog-header
+//     padding: 5px
+//     .wrapper
+//       width: 80%
+
+// @media screen and (min-width: 768px)
+//   // Blog post images
+//   .block-img.emphasized
+//     width: 130%
+//     margin: 0 -15% 2rem -15%
+</style><template lang='pug'>
+  .slice(:class='ctaSize')
+      prismic-rich-text(:field='slice.primary.text', v-if='slice.primary.text.length')
+      prismic-rich-text(:field='slice.primary.button', v-if='slice.primary.button.length').cta-button.alt
+    
+</template>
+
+<script>
+export default {
+  props: ['slice'],
+  name: 'cta-slice',
+  computed: {
+    ctaSize () {
+      if (this.slice.primary.size) return 'cta small'
+      else return 'cta big'
+    }
+  }
+}
+</script>
+
+<style lang='sass'>
+.cta
+  // display: inline-block
+  // position: absolute
+  // left: 0
+  // width: 100vw
+  margin-bottom: 6vw
+  &.big
+    // background: 
+    $c: rgba(0,0,0,0.2)
+    border: 2px $c solid
+    margin-top: 6vw
+    margin-bottom: 3vw
+    // padding: 5vw 3vw 5vw
+    padding: 3vw 3vw 2vw
+    border-radius: 1rem
+    text-align: center
+  .cta-button
+    margin-top: 1vw
+    a, nuxt-link
+      // font-family: 'gtmono', sans-serif
+      // letter-spacing: 0.03rem
+      // background: transparent
+      padding: 0.5em 1em 0.6em !important
+      border-radius: 5px
+      border: 0 !important
+      // font-family: 'gt', sans-serif
+      // color: black
+      transition: all 150ms ease-in
+      &:hover
+        // color: white
+        // background: black
+        opacity: 1
+        transition: all 150ms ease-out
+        transform: scale(1.1) !important
+    
+</style><template>
+    <div>
+        <section v-for="(slice, index) in slices" :key="'slice-' + index" :class='"slice-" + slice.slice_type'>
+            <template v-if="slice.slice_type === 'level'">
+                <level :slice="slice"></level>
+            </template>
+            <template v-if="slice.slice_type === 'text'">
+                <text-slice :slice="slice"></text-slice>
+            </template>
+            <template v-else-if="slice.slice_type === 'quote'">
+                <quote-slice :slice="slice"></quote-slice>
+            </template>
+            <template v-else-if="slice.slice_type === 'image_with_caption'">
+                <image-caption-slice :slice="slice"></image-caption-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'testimonial'">
+                <testimonial-slice :slice="slice"></testimonial-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'table'">
+                <table-slice :slice="slice"></table-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'check_list'">
+                <checklist-slice :slice="slice"></checklist-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'call_to_action'">
+                <cta-slice :slice="slice"></cta-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'columns'">
+                <columns-slice :slice="slice"></columns-slice>
+            </template>
+            
+            <template v-else-if="slice.slice_type === 'embed'">
+                <embed-slice :slice="slice"></embed-slice>
+            </template>
+        </section>
+    </div>
+</template>
+
+<script>
+// Imports for all slices
+// const Level = () => import("../components/slices/Level.vue");
+const QuoteSlice = () => import("../components/slices/QuoteSlice.vue");
+const TextSlice = () => import("../components/slices/TextSlice.vue");
+const ImageCaptionSlice = () => import("../components/slices/ImageCaptionSlice.vue");
+
+const TestimonialSlice = () => import("../components/slices/TestimonialSlice.vue");
+const TableSlice = () => import("../components/slices/TableSlice.vue");const ChecklistSlice = () => import("../components/slices/ChecklistSlice.vue");const CtaSlice = () => import("../components/slices/CtaSlice.vue");
+const ColumnsSlice = () => import("../components/slices/ColumnsSlice.vue");
+const EmbedSlice = () => import("../components/slices/EmbedSlice.vue");
+
+
+export default {
+  props: ['slices'],
+  name: 'slices-block',
+  components: {
+    // Level,
+    QuoteSlice,
+    TextSlice,
+    ImageCaptionSlice,
+    TestimonialSlice,
+    TableSlice,
+    ChecklistSlice,
+    CtaSlice,
+    ColumnsSlice,
+    EmbedSlice
+  },
+  methods: {
+    //   sliceClass(slice) {
+    //       if (
+    //             slice.slice_type === 'text' || 
+    //             slice.slice_type === 'testimonial'
+    //         ) {
+    //           return 'slice-border'
+    //         }
+    //         else {
+    //             return slice.slice_type
+    //         }
+    //   }
+  }
+}
+</script><template lang='pug'>
+  footer.footer
+    
+    mailchimp
+    
+    hr
+    
+    .links1
+      //- a(:href='email', taget='_blank') email
+      nuxt-link(to='/page/contact/') contact
+      span •
+      nuxt-link(to='/the-blog/') blog
+      span •
+      a(href='https://www.instagram.com/5degreechange/', taget='_blank') instagram
+      span •
+      a(href='https://www.linkedin.com/in/carlolofekman/', taget='_blank') linkedin
+    .links2
+      nuxt-link(to='/page/imprint/') imprint
+      span •
+      nuxt-link(to='/page/terms-of-service/') terms of service
+      
+    .txt
+      span five degree change
+      br
+      span Schudomastrasse 26
+      br
+      span 12055 Berlin
+      
+      
+</template>
+
+<script>
+import Mailchimp from '~/components/Mailchimp.vue'
+
+export default {
+  name: 'FooterPrismic',
+  components: {
+    Mailchimp
+  },
+  data: function () {
+    return {
+      email: 'mailto:olof@fivedegreechange.com'
+    }
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+  .footer
+    background: rgba(0,0,0,0.07)
+    text-align: center
+    font-size: 0.8rem
+    letter-spacing: 0
+    line-height: 1.5em
+    opacity: 0.8
+    padding-bottom: 4vw
+    .txt
+      margin-top: 1.2vw
+    hr
+      margin: 1.5vw auto 2.5vw
+      padding: 0
+      // width: 66%
+      width: 420px
+      border: 0
+      background: rgba(255,255,255,0.5)
+      border-radius: 3px
+      height: 2px
+      
+    a
+      color: rgba(0,0,0,0.9)
+      border-bottom: 1px transparent solid
+      text-transform: uppercase
+      display: inline-block
+      margin: 0 0.5rem
+      background: transparent !important
+      &:hover
+        transform: none
+        background: none
+        color: black
+        border-bottom: 1px black solid
+</style><template lang='pug'>
+  .inner
+    nuxt-link(:to='link').blog-link
+      //- div
+      .blog-post
+        .meta.alt
+          .author(v-if='post.data.author_name') {{ post.data.author_name }}
+          .author(v-else) Olof Ekman
+          .date {{ formattedDate }}
+        h2 {{ $prismic.asText(post.data.title) }}
+        
+        .text(v-if='post.data.excerpt.length')
+          prismic-rich-text(:field="post.data.excerpt")
+        p.text(v-else) {{ getFirstParagraph(post) }}
+        a.more.alt Continue reading &rarr;
+        
+</template>
+
+<script>
+import LinkResolver from "~/plugins/link-resolver.js"
+
+export default {
+  props: ['post'],
+  data: function() {
+    return {
+      link: '',
+      formattedDate: '',
+    }
+  },
+  name: 'blog-widget',
+  methods: {
+    // Function to get the first paragraph of text in a blog post and limit the displayed text at 300 characters
+    getFirstParagraph (post) {
+      const textLimit = 300;
+      const slices = post.data.body;
+      let firstParagraph = '';
+      let haveFirstParagraph = false;
+
+      slices.map(function(slice) {
+        if (!haveFirstParagraph && slice.slice_type == "text") {
+          slice.primary.text.forEach(function(block){
+            if (block.type == "paragraph" && !haveFirstParagraph) {
+              firstParagraph += block.text;
+              haveFirstParagraph = true;
+            }
+          });
+        }
+      });
+      
+      const limitedText = firstParagraph.substr(0, textLimit)
+
+      // post.data.
+
+      if (firstParagraph.length > textLimit) {
+        return limitedText.substr(0, limitedText.lastIndexOf(' ')) + '...';
+      }
+      else {
+        return firstParagraph;
+      }
+    },
+  },
+  created () {
+    this.link = LinkResolver(this.post),
+    this.formattedDate = Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(this.post.data.date))
+  },
+}
+</script>
+
+<style lang="sass" scoped>
+  $blogtext: #39507F
+  a
+    background: transparent
+    // text-decoration: underline
+    transition: all 200ms
+    &:hover
+      transform: none
+      .blog-post
+        transition: all 200ms
+        // background: #f0f0f0
+        background: #C3F4D9
+  .blog-link
+    width: 100% !important
+  .blog-post
+    width: 100% !important
+    padding: 1em 1.4rem
+    display: inline-block
+    border-radius: 1em
+    border: 3px $blogtext solid
+  .meta
+    color: #39507F
+    float: right
+    font-size: 0.95rem
+    line-height: 1.25rem
+    text-align: right
+  a.more
+    margin-top: 1.7rem
+    font-size: 1.15rem
+    color: $blogtext
+    padding-left: 0
+    margin-left: 0
+  .text
+    font-size: 0.9rem
+    line-height: 1.2rem
+  h2
+    font-size: 2rem
+    margin-bottom: 0.5em
+    margin-top: 2.8rem
+    width: 100%
+</style><template lang="pug">
+#blog
+  h1 Blog 
+  //- xmp {{ $prismic }}
+  //- .blog-main(v-if='posts.length !== 0').viewer.columns.is-multiline
+    section.blog-post(v-for='post in posts', :key='post.id', v-bind:post='post').item.column.is-one-third
+      .widget
+        blog-widget(:post='post')
+  //- .blog-main(v-else)
+    p No Posts published at this time.
+</template>        
+        
+<script>
+import BlogWidget from '~/components/BlogWidget.vue'
+// import Level from '~/components/slices/Level.vue'
+// import FooterPrismic from '~/components/FooterPrismic.vue'
+
+if (process.browser) {
+  var Masonry = require('masonry-layout');
+  var ImagesLoaded = require('imagesloaded');
+}
+
+
+export default {
+  name: 'Blog',
+  components: {
+    BlogWidget,
+    // Level,
+    // FooterPrismic
+  },
+  data() {
+    return {
+      selector: ".viewer",
+      options: {
+        columnWidth: ".is-one-third",
+        percentPosition: true,
+        gutter: 0,
+        itemSelector: ".item",
+        // horizontalOrder: true
+      }
+    };
+  },
+  methods: {
+    loaded() {
+      // all images are loaded
+      ImagesLoaded(this.selector, () => {
+        this.$emit("masonry-images-loaded");
+        // activate mansonry grid
+        let masonry = new Masonry(this.selector, this.options);
+        this.$emit("masonry-loaded", masonry);
+      });
+    }
+  },
+  watch: {
+    data () {
+      // this.loaded()
+    }
+  },
+  mounted () {
+    // this.loaded()
+  },
+  computed: {
+    HALF () {
+      return 200
+    }
+  },
+  transition: {
+    // name: 'home',
+    // mode: 'out-in'
+    // mode: 'in-out'
+  },
+  // head () {
+  //   return {
+  //     title: 'Blog',
+  //   }
+  // },
+  async asyncData({ $prismic, error }) {
+    try {
+      // const homepage = (await $prismic.api.getSingle('homepage')).data
+
+      const blogPosts = await $prismic.api.query(
+        $prismic.predicates.at("document.type", "post"),
+        { orderings : '[my.post.date desc]' }
+      )
+      console.log(blogPosts);
+      
+      // console.log(homepage.body)
+      // homepage.body.forEach(slice => {
+      //   if (slice.primary.subtitle.length) {
+      //     // let subtitle = 
+      //     // subtitle = 'hello'
+      //     slice.primary.subtitle[0].text = slice.primary.subtitle[0].text.replace(' — ', ' —\n')
+      //   }
+      // })
+
+      return {
+        // homepage,
+        posts: blogPosts.results,
+        // image: homepageContent.image.url,
+      }
+    } catch (e) {
+      // Returns error page
+      // error({ statusCode: 404, message: 'Page not found' })
+      error({ statusCode: 303, message: JSON.stringify(e) })
+    }
+  },
+}
+</script>
+
+<style lang="sass" scoped>
+  .is-one-third
+    margin-bottom: 0.5rem
+</style><template lang="pug">
+  nuxt-link(to='/')#logo
+    .bg
+      span &nbsp;
+      //- img(src='~assets/img/logo-bg.svg')
+    .fg
+      img(src='~assets/img/logo.svg')
+</template>
+
+<style lang="sass">
+#logo
+  // position: absolute
+  position: fixed
+  right: 3vw
+  top: 3vw
+  width: 18vw
+  z-index: 999
+  transform: scale(0.8) translate(20%, -25%)
+  &:hover
+    background: transparent
+  .bg 
+    // img
+    position: relative
+    top: 0vw
+    right: 0vw
+    width: 17vw
+    height: 18vw
+    z-index: 88
+    // background: rgba(10,10,10,0.1)
+    background: rgba(150,150,150,0.15)
+    mask: url(~assets/img/logo-bg.svg) no-repeat center
+    backdrop-filter: blur(11px)
+    // border: 1px white solid
+    // border: 1px blue solid
+  .fg img
+    position: relative
+    top: 1.3vw
+    right: -2vw
+    width: 15vw
+    height: auto
+    z-index: 99
+    opacity: 0.9
+  .bg
+    position: absolute
+    
+</style>
+<template lang="pug">
+  #menu(:class='{ white: isDark }')
+    nav.navbar
+      a.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', data-target='navbarBasicExample', @click='toggle', :class='{ "is-active": open }')
+        span(aria-hidden='true')
+        span(aria-hidden='true')
+        span(aria-hidden='true')
+    .inner(:class='{ "is-active": open }').alt
+      //- nuxt-link(to='/').menu-item Home
+      .txt Work with me
+      .pad
+        nuxt-link(to='/page/habit-experiment').menu-item The 1-Month Habit Experiment
+        nuxt-link(to='/page/coaching').menu-item 1 on 1 coaching
+        nuxt-link(to='/page/team-work').menu-item Team development
+      nuxt-link(to='/').menu-item Home
+      nuxt-link(to='/page/olof').menu-item About
+      nuxt-link(to='/the-blog/').menu-item Blog
+      nuxt-link(to='/page/contact').menu-item Get in touch
+            
+</template>
+
+<script>
+export default {
+  name: "Menu",
+  data: function() {
+    return {
+      open: false,
+      isDark: false
+    }
+  },
+  watch: {
+    $route: function (r) {
+      // console.log('route change')
+      // console.log(r);
+      this.pathCheck()
+      this.open = false
+    }
+  },
+  mounted () {
+    this.pathCheck()
+  },
+  methods: {
+    pathCheck (r) {
+      let route = r
+      if (!route) route = this.$route.path
+      
+      const darkPaths = [
+        '/page/coaching',
+        '/page/team-work'
+      ]
+      if (darkPaths.includes(route)) {
+        this.isDark = true
+      } else {
+        this.isDark = false
+      }
+    },
+    toggle () {
+      this.open = !this.open
+    }
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+#menu
+  position: fixed
+  top: 1vw
+  left: 1vw
+  z-index: 999
+.navbar-burger
+  display: block
+  height: 2rem
+  width: 2rem
+  transform: scale(2) translate(0.5vw, 0.5vw)
+  &:hover
+    transform: scale(2) translate(0.5vw, 0.5vw) !important
+.navbar
+  background: transparent !important
+a, a:hover
+  background: transparent !important
+  transform: scale(1)
+  color: rgba(0,0,0,0.8)
+.inner
+  $w: 300px
+  transform: translate3d(-$w,0,0)
+  transition: all 200ms ease-out
+  &.is-active
+    transform: translate3d(0,0,0)
+    transition: all 200ms ease-out
+  // background: rgba(100,100,100,0.15)
+  background: rgba(0,0,0,0.01)
+  border-right: 2px black solid
+  // background: rgba(255,255,255,0.1)
+  backdrop-filter: blur(11px)
+  position: fixed
+  left: 0
+  top: 0
+  width: $w
+  height: 100vh
+  padding: 6rem 1rem
+.menu-item
+  display: block
+  line-height: 1.3em
+  font-weight: normal
+  // margin-bottom: 1.3em
+  padding: 0.6em 0
+  margin-left: 1em
+  opacity: 0.86
+  &:before
+    content: '✓ '
+    opacity: 0
+    margin-left: -1.2em
+    // overflow: hidden
+    // width: 0
+    // display: inline-block
+  &:hover
+    opacity: 1
+    &:before
+      opacity: 0.5
+      
+    // padding-left: 0.5em
+    // width: 1em
+    // &:before
+      
+.txt
+  // text-decoration: underline
+  margin-bottom: 0.3em
+  opacity: 0.86
+  text-transform: uppercase
+  font-size: 0.8em
+  margin-left: 1em
+.pad
+  margin-left: 1em
+
+.white
+  *
+    color: rgba(255,255,255,0.8)
+  .inner
+    background: rgba(255,255,255,0.05)
+    border-color: white
+    a:hover
+      color: white
+
+</style><template>
+<div>
+  <div class="typeform-widget" data-url="https://form.typeform.com/to/rx9tqMv4" data-transparency="100" style="width: 100%; height: 500px;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> 
+  <div style="font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;"> powered by <a href="https://admin.typeform.com/signup?utm_campaign=rx9tqMv4&utm_source=typeform.com-01EJJKC4472M15K1QPNAQF6CMY-free&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN" style="color: #999" target="_blank">Typeform</a> </div>
+</div>
+</template>
+<template>
+  <div class="container section">
+    <!-- <div class="back">
+      <nuxt-link to="/">back to list</nuxt-link>
+    </div> -->
+    <h1 v-if="error.statusCode === 404">Page not found</h1>
+    <h1 v-else>An error occurred</h1>
+    
+    <!-- <xmp>{{ error }}</xmp> -->
+    <br/>
+    <nuxt-link to="/" style="text-decoration: underline;">Return to home</nuxt-link>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['error'],
+  head () {
+    return {
+      title: 'Error',
+    }
+  },
+}
+</script>
+
+<style lang="sass">
+  xmp
+    font-family: 'monaco'
+    font-size: 14px
+    margin-bottom: 1em
+</style><template lang='pug'>
+  #app
+    cookie-control
+      template(v-slot:bar)
+        .cookiies
+          h3 This website uses cookies to ensure you get the best experience
+          p.small {{ $cookies.text.barDescription }}
+          n-link(to='/') Go somewhere
+    Menu
+    Logo
+    #main
+      //- vue-page-transition(name="flip-y")
+      Nuxt
+</template>
+
+<script>
+import Menu from '~/components/Menu.vue'
+import Logo from '~/components/Logo.vue'
+
+export default {
+  components: {
+    Menu,
+    Logo
+  }
+}
+</script>
+
+<style lang="sass">
+.cookiies
+  .small
+    font-size: 12px
+    line-height: 1.2em
+    width: 66%
+.cookieControl__ControlButton
+  display: none !important
+</style>const { join } = require('path')
+const logger = require('consola').withScope('docs/crawler')
+
+module.exports = async function () {
+  const isBuild = this.options._build
+
+  if (isBuild) {
+    // Add runtime plugin
+    this.addPlugin({
+      src: join(__dirname, 'plugin.js')
+    })
+  }
+
+  // Hook generator to extract routes
+  this.nuxt.hook('generate:before', async (generator) => {
+    const routes = {}
+
+    // Add hook when a page is generated
+    this.nuxt.hook('vue-renderer:ssr:context', async (context) => {
+      routes[context.url] = true
+      context.links = context.links || []
+
+      const promises = context.links.map(async (link) => {
+        const route = link.replace(/\/+/, '/').replace(/\?.+/, '').replace(/#.+/, '')
+        if (routes[route]) {
+          return
+        }
+        routes[route] = true
+        await generator.generateRoute({ route, payload: null })
+      })
+      await Promise.all(promises)
+    })
+
+    // Profile generate
+    let startTime
+    let count
+    this.nuxt.hook('generate:routeCreated', () => {
+      if (!startTime) {
+        startTime = new Date()
+        count = 0
+      } else {
+        count++
+      }
+    })
+    this.nuxt.hook('generate:done', () => {
+      const time = (new Date() - startTime) / 1000
+      const rps = count / time
+      logger.info(`Generated ${count} routes in ${time} sec (${rps} r/s)`)
+    })
+  })
+}
+import Vue from 'vue'
+
+// Extends nuxt-link to track the links
+if (process.server && process.static) {
+  if (!Vue.__mixin_nuxt_links__) {
+    Vue.__mixin_nuxt_links__ = true
+    Vue.mixin({
+      created() {
+        if (this.$options.name === 'NuxtLink' && this.to) {
+          const { href } = this.$router.resolve(this.to, this.$route, this.append)
+          const links = this.$ssrContext.links = this.$ssrContext.links || []
+          if (!links.includes(href)) {
+            links.push(href)
+          }
+        }
+      }
+    })
+  }
+}
+// Inspired by https://github.com/DreaMinder/nuxt-payload-extractor
+// Credits to @DreMinder
+const path = require('path')
+const { writeFile, ensureDir } = require('fs-extra')
+
+let extractPayload = function({ html, route }, windowNamespace){
+  let chunks = html.split(`<script>window.${windowNamespace}=`)
+  let pre = chunks[0]
+  let payload = chunks[1].split('</script>').shift()
+  let post = chunks[1].split('</script>').slice(1).join('</script>')
+  let path = route === '/' ? '' : route
+
+  return {
+    html: pre + '<script defer src="' + path + '/payload.js"></script>' + post,
+    payload
+  }
+}
+
+let writePayload = async function (payload, dir, windowNamespace){
+  // Make sure the directory exists
+  await ensureDir(dir)
+
+  // Write payload.js file
+  await writeFile(path.resolve(dir, 'payload.js'), `window.${windowNamespace}=${payload}`, 'utf-8')
+
+  // if routes are nested, ignore parent routs and extract last one
+  const nuxtContext = eval('('+payload+')')
+  const pageData = nuxtContext.data
+
+  // Write payload.json (page data)
+  await writeFile(path.resolve(dir, 'payload.json'), JSON.stringify(pageData), 'utf-8')
+}
+
+module.exports = function (moduleOptions) {
+  const options = {
+    blacklist: [],
+    ...this.options.static,
+    ...moduleOptions
+  }
+
+  this.nuxt.hook('generate:page', async page => {
+    if (!this.nuxt.options.generate.subFolders) {
+      throw new Error('generate.subFolders should be true for @nuxt/static')
+    }
+    if (options.blacklist.includes(page.route)) {
+      return page
+    }
+
+    const windowNamespace = this.nuxt.options.globals.context(this.nuxt.options.globalName)
+    let { html, payload } = extractPayload(page, windowNamespace)
+
+    await writePayload(payload, path.join(this.nuxt.options.generate.dir, page.route), windowNamespace)
+    page.html = html
+
+    return page
+  })
+
+  // Add nuxt_static middleware
+  this.addPlugin({
+    src: path.resolve(__dirname, 'plugin.js')
+  })
+  this.nuxt.options.router.middleware.push('nuxt_static')
+}
+import { getMatchedComponents } from './utils.js'
+import Middleware from './middleware'
+
+const hasStaticAsyncData = (Component) => Boolean(Component.options.asyncData) && Component.options.static !== false
+
+Middleware.nuxt_static = async ({ route, error }) => {
+  // Ignore on server
+  if (process.server) return
+  // Ignore if not generated
+  if (!process.static) return
+
+  const Components = getMatchedComponents(route)
+  Components.forEach(Component => {
+    Component._payloads = Component._payloads || {}
+    if (hasStaticAsyncData(Component)) {
+      Component.options.asyncData = ({ route }) => Component._payloads[route.path.replace(/\/$/, '')]
+    }
+  })
+  const path = route.path.replace(/\/$/, '')
+  const needFetch = Components.some(Component => hasStaticAsyncData(Component) && !Component._payloads[path])
+  if (!needFetch) {
+    return
+  }
+  const payloadPath = (path + '/payload.json').replace(/\/+/, '/')
+  const pageDatas = await fetch(payloadPath).then(res => {
+    if (!res.ok) return null
+    return res.json()
+  })
+  if (!pageDatas) {
+    error({ statusCode: 404, message: 'Page not found' })
+    console.error(`[@nuxt/static] Could not fetch ${payloadPath}`)
+    return
+  }
+
+  Components.forEach((Component, index) => {
+    if (hasStaticAsyncData(Component)) {
+      Component._payloads[path] = pageDatas[index]
+    }
+  })
+}
+<template lang="pug">
+  .homepage
+    
+    .news(v-if='homepage.news.length')
+      prismic-rich-text(:field='homepage.news')
+      
+    level(:slice="level", v-for='(level, i) in homepage.body', :key="'slice-'+i", :class="'level-'+(i+1)", :data-name='level.primary.title[0].text.trim().toLowerCase()', :data-ref='level.primary.ref').homepage-section
+      
+    section.section.blog.homepage-section(data-ref='blog')
+      h1 Blog 
+      .blog-main(v-if='posts.length !== 0').viewer.columns.is-multiline
+        section.blog-post(v-for='post in posts', :key='post.id', v-bind:post='post').item.column.is-one-third
+          .widget
+            blog-widget(:post='post')
+      .blog-main(v-else)
+        p No Posts published at this time.
+        
+    footer-prismic  
+</template>
+
+<script>
+import BlogWidget from '~/components/BlogWidget.vue'
+import Level from '~/components/slices/Level.vue'
+import FooterPrismic from '~/components/FooterPrismic.vue'
+// import scrollIntoView from 'scroll-into-view'
+
+if (process.browser) {
+  var Masonry = require('masonry-layout');
+  var ImagesLoaded = require('imagesloaded');
+}
+
+
+export default {
+  name: 'Home',
+  components: {
+    BlogWidget,
+    Level,
+    FooterPrismic
+  },
+  data() {
+    return {
+      selector: ".viewer",
+      options: {
+        columnWidth: ".is-one-third",
+        percentPosition: true,
+        gutter: 0,
+        itemSelector: ".item",
+        // horizontalOrder: true
+      },
+      hash: this.$route.hash
+    };
+  },
+  methods: {
+    loaded() {
+      // all images are loaded
+      ImagesLoaded(this.selector, () => {
+        this.$emit("masonry-images-loaded");
+        // activate mansonry grid
+        let masonry = new Masonry(this.selector, this.options);
+        this.$emit("masonry-loaded", masonry);
+        // this.scrollToAnchorPoint()
+      });
+    },
+    scrollToAnchorPoint() {
+      if (this.hash) {
+        const refName = this.hash.replace('#', '')
+        const el = this.$children.find(e => e.$attrs['data-ref'] === refName)
+        console.log(el);
+        el.$el.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  },
+  watch: {
+    data () {
+      this.loaded()
+    }
+  },
+  mounted () {
+    this.loaded()
+    this.$nextTick(function () {
+      this.scrollToAnchorPoint()  
+    })
+  },
+  computed: {
+    HALF () {
+      return 200
+    }
+  },
+  transition: {
+    // name: 'home',
+    // mode: 'out-in'
+    // mode: 'in-out'
+  },
+  head () {
+    return {
+      title: 'five degree change',
+    }
+  },
+  async asyncData({ $prismic, error }) {
+    try{
+      const homepage = (await $prismic.api.getSingle('homepage')).data
+
+      const blogPosts = await $prismic.api.query(
+        $prismic.predicates.at("document.type", "post"),
+        { orderings : '[my.post.date desc]' }
+      )
+      
+      // console.log(homepage.body)
+      homepage.body.forEach(slice => {
+        if (slice.primary.subtitle.length) {
+          // let subtitle = 
+          // subtitle = 'hello'
+          slice.primary.subtitle[0].text = slice.primary.subtitle[0].text.replace(' — ', ' —\n')
+        }
+      })
+
+      return {
+        homepage,
+        posts: blogPosts.results,
+        // image: homepageContent.image.url,
+      }
+    } catch (e) {
+      // Returns error page
+      // error({ statusCode: 404, message: 'Page not found' })
+      error({ statusCode: 303, message: JSON.stringify(e) })
+    }
+  },
+}
+</script>
+
+<style lang="sass">
+.news
+  position: absolute
+  z-index: 99
+  right: 4vw
+  top: calc(95vh - 16vw)
+  border-radius: 15vw
+  display: flex
+  align-items: center
+  justify-content: center
+  text-align: center
+  padding: 0 1.5vw
+  font-style: italic
+  box-shadow: 0 0 20px 7px rgba(255,255,255,0.5)
+  font-size: calc(10px + 0.3vw)
+  width: 16vw
+  height: 16vw
+  backdrop-filter: blur(11px)
+  background: rgba(255,255,255,0.1)
+  border: 2px white solid
+  transform-origin: center
+  transform: rotate(-10deg)
+  animation-name: news
+  animation-duration: 666ms
+  animation-timing-function: ease-in-out
+  animation-iteration-count: infinite
+  animation-direction: alternate
+  a
+    text-decoration: underline
+    &:hover
+      background: transparent
+      color: black
+  p
+    padding: 0.5rem 0 0 0 !important
+    margin: 0 !important
+
+.is-one-third
+  margin-bottom: 0.5rem
+
+@keyframes news
+  0%
+    transform: scale(1) rotate(-12deg)
+  // 50%
+  //   transform: scale(1.5)
+  100%
+    transform: scale(1.08) rotate(-3deg)
+
+</style><template lang='pug'>
+  
+  .page(:class='colour', :data-name='document.title[0].text.trim().toLowerCase()')
+    .header
+      nuxt-link(to='/').alt.back &larr; Back home
+      
+    .container
+      section.section
+        .columns(v-if='document.hero_image.url || document.hero_video.html')
+          .column.hero_column(:class='{ "is-6 is-offset-3" : document.hero_image.url, "is-8 is-offset-2" : document.hero_video.html }')
+            prismic-image(:field='document.hero_image', v-if='document.hero_image.url').hero_image
+            prismic-embed(:field='document.hero_video', v-if='document.hero_video.html').hero_video
+        h1.blog-title {{ $prismic.asText(document.title) }}
+    
+    .container
+      section.section
+        content
+          slices-block(:slices='slices')
+    
+    footer-prismic
+    //- mailchimp
+        
+</template>
+
+
+<script>
+import SlicesBlock from '~/components/SlicesBlock.vue'
+// import Mailchimp from '~/components/Mailchimp.vue'
+import FooterPrismic from '~/components/FooterPrismic.vue'
+
+export default {
+  name: 'post',
+  components: {
+    SlicesBlock,
+    // Mailchimp,
+    FooterPrismic
+  },
+  transition: {
+    // name: 'home',
+    // mode: 'out-in'
+    // mode: 'in-out'
+  },
+  head () {
+    return {
+      title: this.document.title[0].text || 'Page'
+    }
+  },
+  computed: {
+    colour () {
+      const options = {
+        "Black and white": 'black-and-white',
+        "Lavender": 'level-1', 
+        "Sunshine (yellow)": 'level-2', 
+        "Night (blue)": 'level-3', 
+        "Regal (purple)": 'level-4' 
+      }
+      let c = this.document.colour
+      return options[c]
+    }
+  },
+  async asyncData({ $prismic, params, error }) {
+    try{
+      const post = (await $prismic.api.getByUID('page', params.uid)).data
+
+      return {
+        document: post,
+        slices: post.body,
+      }
+    } catch (e) {
+      error({ statusCode: 202, message: 'page?!?!' })
+    }
+  },
+
+}
+</script>
+
+<style lang="sass">
+.hero_video
+  margin-top: 8vh
+  position: relative
+  padding-bottom: 56.25%
+  height: 0
+  overflow: hidden
+  max-width: 100%
+  width: 100%
+  iframe, object, embed
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    
+</style>
+
+<style lang="sass" scoped>
+h1.blog-title
+  line-height: 1em
+.section
+  padding-top: 1.5rem
+  // padding-top: 0
+.blog
+  min-height: 100vh
+  background: #f5f5f5
+.back
+  opacity: 1 !important
+  color: rgba(0,0,0,0.7) !important
+  border: 0 !important
+.meta
+  color: rgba(0,0,0,0.4) !important
+  float: right
+  text-align: right
+  img
+    opacity: 0.9
+    height: 100px
+    border-radius: 100%
+    width: auto
+.author
+  .author-name
+    font-weight: bold
+  .author-image
+    margin-bottom: 0.5rem
+  float: left
+  text-align: center
+  color: rgb(100,100,100)
+  font-size: 0.9rem
+  line-height: 1.2rem
+  border: 1px #ccc solid
+  padding: 0 1.5rem 1rem 0
+  margin: 0.3rem 2rem 1rem 0.3rem
+  border-top: 0
+  border-left: 0
+  border-radius: 0 0 1rem 0
+  img
+    opacity: 0.9
+    height: 8rem
+    border-radius: 100%
+    width: auto
+h1
+  margin-top: 0rem
+  margin-bottom: 0rem
+  width: 80%
+  margin-left: 10%
+  text-align: center
+  font-size: 7vw
+.hero
+  height: 40vh
+  overflow: hidden
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center center
+  margin-bottom: 3rem
+.hero_image
+  border-radius: 1rem
+.hero_column
+  display: flex
+  justify-content: center
+  
+.header
+  padding: 1rem
+  a
+    background: transparent
+    color: black
+    opacity: 0.4
+</style> 
+<template lang='pug'>
+  .blog
+    .header
+      nuxt-link(to='../').alt.back &larr; Back home
+      .meta.alt
+        .date {{ formattedDate }}
+    
+    .container
+      section.section
+        .columns(v-if='document.hero_image')
+          .column.is-6.is-offset-3
+            prismic-image(:field='document.hero_image').hero_image
+        h1.blog-title {{ $prismic.asText(document.title) }}
+    
+    .container
+      section.section
+        content
+          .author.alt
+            //- xmp(v-if='document.author_image.url') {{ document }}
+            prismic-image(:field='document.author_image', v-if='document.author_image.url').author-image
+            img(src='https://images.prismic.io/fivedegreechange/5700d7a9-6198-4ecd-9d63-2f123cc7e531_olof.jpg?auto=compress,format&rect=0,0,1200,1200&w=300&h=300', v-else).author-image
+            .author-name(v-if='document.author') {{ document.author }}
+            .author-name(v-else) Olof Ekman
+            .date {{ formattedDate }}
+          slices-block(:slices='slices')
+          
+    footer-prismic
+        
+</template>
+
+<style lang="sass" scoped>
+  .section
+    padding-top: 1.5rem
+    // padding-top: 0
+  .blog
+    min-height: 100vh
+    background: #f5f5f5
+  .back
+    opacity: 1 !important
+    color: rgba(0,0,0,0.7) !important
+  .meta
+    color: rgba(0,0,0,0.7) !important
+    float: right
+    text-align: right
+    img
+      opacity: 0.9
+      height: 100px
+      border-radius: 100%
+      width: auto
+  .author
+    .author-name
+      font-weight: bold
+    .author-image
+      margin-bottom: 0.5rem
+    float: left
+    text-align: center
+    color: rgb(100,100,100)
+    font-size: 0.9rem
+    line-height: 1.2rem
+    border: 1px #ccc solid
+    padding: 0 1.5rem 1rem 0
+    margin: 0.3rem 2rem 1rem 0.3rem
+    border-top: 0
+    border-left: 0
+    border-radius: 0 0 1rem 0
+    img
+      opacity: 0.9
+      height: 8rem
+      border-radius: 100%
+      width: auto
+  h1
+    margin-top: 0rem
+    margin-bottom: 0rem
+    width: 80%
+    margin-left: 10%
+    text-align: center
+    font-size: 7vw
+  .hero
+    height: 40vh
+    overflow: hidden
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center center
+    margin-bottom: 3rem
+  .hero_image
+    border-radius: 1rem
+  .header
+    padding: 1rem
+    a
+      background: transparent
+      color: black
+      opacity: 0.4
+</style> 
+
+<script>
+import SlicesBlock from '~/components/SlicesBlock.vue'
+import FooterPrismic from '~/components/FooterPrismic.vue'
+
+export default {
+  name: 'post',
+  components: {
+    SlicesBlock,
+    FooterPrismic
+  },
+  transition: {
+    // name: 'home',
+    // mode: 'out-in'
+    // mode: 'in-out'
+  },
+  head () {
+    return {
+      title: this.document.title[0].text || 'Blog'
+    }
+  },
+  async asyncData({ $prismic, params, error }) {
+    try{
+      const post = (await $prismic.api.getByUID('post', params.uid)).data
+
+      return {
+        document: post,
+        slices: post.body,
+        formattedDate: Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(post.date)),
+      }
+    } catch (e) {
+      error({ statusCode: 101, message: '?!?!' })
+    }
+  },
+
+}
+</script>
+
+<style lang="sass">
+</style><template lang="pug">
+  .homepage
+  
+    //- level(:slice="level", v-for='(level, i) in homepage.body', :key="'slice-'+i", :class="'level-'+(i+1)", :data-name='level.primary.title[0].text.trim().toLowerCase()').homepage-section
+      
+    section.section.blog.homepage-section
+      h1 Blog 
+      .blog-main(v-if='posts.length !== 0').viewer.columns.is-multiline
+        section.blog-post(v-for='post in posts', :key='post.id', v-bind:post='post').item.column.is-one-third
+          .widget
+            blog-widget(:post='post')
+      .blog-main(v-else)
+        p No Posts published at this time.
+        
+    footer-prismic  
+</template>
+
+<script>
+import BlogWidget from '~/components/BlogWidget.vue'
+import Level from '~/components/slices/Level.vue'
+import FooterPrismic from '~/components/FooterPrismic.vue'
+
+if (process.browser) {
+  var Masonry = require('masonry-layout');
+  var ImagesLoaded = require('imagesloaded');
+}
+
+
+export default {
+  name: 'Home',
+  components: {
+    BlogWidget,
+    Level,
+    FooterPrismic
+  },
+  data() {
+    return {
+      selector: ".viewer",
+      options: {
+        columnWidth: ".is-one-third",
+        percentPosition: true,
+        gutter: 0,
+        itemSelector: ".item",
+        // horizontalOrder: true
+      }
+    };
+  },
+  methods: {
+    loaded() {
+      // all images are loaded
+      ImagesLoaded(this.selector, () => {
+        this.$emit("masonry-images-loaded");
+        // activate mansonry grid
+        let masonry = new Masonry(this.selector, this.options);
+        this.$emit("masonry-loaded", masonry);
+      });
+    }
+  },
+  watch: {
+    data () {
+      this.loaded()
+    }
+  },
+  mounted () {
+    this.loaded()
+  },
+  computed: {
+    HALF () {
+      return 200
+    }
+  },
+  transition: {
+    // name: 'home',
+    // mode: 'out-in'
+    // mode: 'in-out'
+  },
+  head () {
+    return {
+      title: 'five degree change',
+    }
+  },
+  async asyncData({ $prismic, error }) {
+    try{
+      const homepage = (await $prismic.api.getSingle('homepage')).data
+
+      const blogPosts = await $prismic.api.query(
+        $prismic.predicates.at("document.type", "post"),
+        { orderings : '[my.post.date desc]' }
+      )
+      
+      // console.log(homepage.body)
+      homepage.body.forEach(slice => {
+        if (slice.primary.subtitle.length) {
+          // let subtitle = 
+          // subtitle = 'hello'
+          slice.primary.subtitle[0].text = slice.primary.subtitle[0].text.replace(' — ', ' —\n')
+        }
+      })
+
+      return {
+        homepage,
+        posts: blogPosts.results,
+        // image: homepageContent.image.url,
+      }
+    } catch (e) {
+      // Returns error page
+      // error({ statusCode: 404, message: 'Page not found' })
+      error({ statusCode: 303, message: JSON.stringify(e) })
+    }
+  },
+}
+</script>
+
+<style lang="sass" scoped>
+  .is-one-third
+    margin-bottom: 0.5rem
+</style>import Vue from 'vue'
+import VuePageTransition from 'vue-page-transition'
+
+Vue.use(VuePageTransition)import linkResolver from "./link-resolver"
+import prismicDOM from 'prismic-dom'
+
+const Elements = prismicDOM.RichText.Elements
+
+export default function (type, element, content, children) {
+  // Generate links to Prismic Documents as <router-link> components
+  // Present by default, it is recommended to keep this
+  if (type === Elements.hyperlink) {
+    let result = ''
+    const url = prismicDOM.Link.url(element.data, linkResolver)
+
+    if (element.data.link_type === 'Document') {
+      result = `<a href="${url}" data-nuxt-link>${content}</a>`
+    } else {
+      const target = element.data.target ? `target="'${element.data.target}'" rel="noopener"` : ''
+      result = `<a href="${url}" ${target}>${content}</a>`
+    }
+    return result
+  }
+
+  // If the image is also a link to a Prismic Document, it will return a <router-link> component
+  // Present by default, it is recommended to keep this
+  if (type === Elements.image) {
+    let result = `<img src="${element.url}" alt="${element.alt || ''}" copyright="${element.copyright || ''}">`
+
+    if (element.linkTo) {
+      const url = prismicDOM.Link.url(element.linkTo, linkResolver)
+
+      if (element.linkTo.link_type === 'Document') {
+        result = `<nuxt-link to="${url}">${result}</nuxt-link>`
+      } else {
+        const target = element.linkTo.target ? `target="${element.linkTo.target}" rel="noopener"` : ''
+        result = `<a href="${url}" ${target}>${result}</a>`
+      }
+    }
+    const wrapperClassList = [element.label || '', 'block-img']
+    result = `<p class="${wrapperClassList.join(' ')}">${result}</p>`
+    return result
+  }
+
+  // Return null to stick with the default behavior for everything else
+  return null
+}// export default function(doc) {
+//   return '/'
+// }
+
+/**
+ * To learn more about Link Resolving check out the Prismic documentation
+ */
+
+export default function (doc) {
+  if (doc.isBroken) {
+    return '/not-found'
+  }
+
+  if (doc.type === 'homepage') {
+    return '/'
+  }
+
+  if (doc.type === 'post') {
+    return '/blog/' + doc.uid
+  }
+  
+  if (doc.type === 'page') {
+    return '/page/' + doc.uid
+  }
+
+  return '/not-found'
+}export default async ({ redirect }) => {
+  window.addEventListener(
+      'click',
+      (event) => {
+          // If the clicked element doesn't have the right selector, bail
+          if (!event.target.matches('a[data-nuxt-link]')) return
+
+          // Don't follow the link
+          event.preventDefault()
+
+          // Push link destination to router
+          redirect(event.target.pathname)
+      },
+      false
+  )
+}

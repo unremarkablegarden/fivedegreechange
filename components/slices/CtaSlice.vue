@@ -37,7 +37,7 @@ export default {
     text-align: center
   .cta-button
     margin-top: 1vw
-    a, nuxt-link
+    a
       // font-family: 'gtmono', sans-serif
       // letter-spacing: 0.03rem
       // background: transparent
@@ -47,10 +47,13 @@ export default {
       // font-family: 'gt', sans-serif
       // color: black
       transition: all 150ms ease-in
+      display: inline-block
       &:hover
+        // background: #000 !important
+        // transform: scale(2) !important
         // color: white
         // background: black
-        opacity: 1
+        opacity: 0.9
         transition: all 150ms ease-out
         transform: scale(1.1) !important
     

@@ -16,6 +16,7 @@
       nuxt-link(to='/page/olof').menu-item About
       nuxt-link(to='/the-blog/').menu-item Blog
       nuxt-link(to='/page/contact').menu-item Get in touch
+    .bg(:class='{ "is-active": open }', @click='toggle') &nbsp;
             
 </template>
 
@@ -62,6 +63,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+$w: 300px
+
 #menu
   position: fixed
   top: 1vw
@@ -80,8 +83,20 @@ a, a:hover
   background: transparent !important
   transform: scale(1)
   color: rgba(0,0,0,0.8)
+.bg
+  background: transparent
+  position: fixed
+  top: 0
+  left: $w
+  width: calc(100vw - 300px)
+  height: 100vh
+  // z-index: 888
+  transform: translate3d(-100vw,0,0)
+  &.is-active
+    transform: translate3d(0,0,0)
 .inner
-  $w: 300px
+  // position: relative
+  // z-index: 1001
   transform: translate3d(-$w,0,0)
   transition: all 200ms ease-out
   &.is-active
