@@ -93,7 +93,7 @@ export default {
         }, {
           hid: 'og:url',
           name: 'og:url',
-          content: 'http://fivedegreechange.com/page/the-blog',
+          content: 'http://fivedegreechange.com/the-blog',
         }, {
           hid: 'og:title',
           name: 'og:title',

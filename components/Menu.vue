@@ -9,13 +9,13 @@
       //- nuxt-link(to='/').menu-item Home
       .txt Work with me
       .pad
-        nuxt-link(to='/page/habit-experiment').menu-item The 1-Month Habit Experiment
-        nuxt-link(to='/page/coaching').menu-item 1 on 1 coaching
-        nuxt-link(to='/page/team-work').menu-item Team development
+        nuxt-link(to='/habit-experiment').menu-item The 1-Month Habit Experiment
+        nuxt-link(to='/coaching').menu-item 1 on 1 coaching
+        nuxt-link(to='/team-work').menu-item Team development
       nuxt-link(to='/').menu-item Home
-      nuxt-link(to='/page/olof').menu-item About
+      nuxt-link(to='/olof').menu-item About
       nuxt-link(to='/the-blog/').menu-item Blog
-      nuxt-link(to='/page/contact').menu-item Get in touch
+      nuxt-link(to='/contact').menu-item Get in touch
     .bg(:class='{ "is-active": open }', @click='toggle') &nbsp;
             
 </template>
@@ -46,8 +46,8 @@ export default {
       if (!route) route = this.$route.path
       
       const darkPaths = [
-        '/page/coaching',
-        '/page/team-work'
+        '/coaching',
+        '/team-work'
       ]
       if (darkPaths.includes(route)) {
         this.isDark = true

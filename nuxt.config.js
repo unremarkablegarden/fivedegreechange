@@ -65,17 +65,6 @@ module.exports = {
       //'bottom-left', 'bottom-right', 'bottom-full'
       barPosition: 'bottom-full',
     }],
-    // ["nuxt-social-meta", {
-    //   url: "https://www.fivedegreechange.com/",
-    //   title: "Home",
-    //   site_name: "five degree change",
-    //   description: "How about some change?",
-    //   img: "bwlogo.png",
-    //   locale: "en_US",
-    //   // twitter: "@user",
-    //   twitter_card: "summary_large_image",
-    //   themeColor: "##B2B8EF",
-    // }],
   ],
   
   
@@ -173,7 +162,7 @@ module.exports = {
         .then((res) => { 
           let arr = []
           res.data.results.map((item) => { 
-            if (item.type === 'page') arr.push('/page/' + item.uid)
+            if (item.type === 'page') arr.push('/' + item.uid)
           }) 
           return arr
         })

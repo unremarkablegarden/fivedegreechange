@@ -7,7 +7,7 @@
     
     .links1
       //- a(:href='email', taget='_blank') email
-      nuxt-link(to='/page/contact/') contact
+      nuxt-link(to='/contact/') contact
       span •
       nuxt-link(to='/the-blog/') blog
       span •
@@ -15,9 +15,9 @@
       span •
       a(href='https://www.linkedin.com/in/carlolofekman/', taget='_blank') linkedin
     .links2
-      nuxt-link(to='/page/imprint/') imprint
+      nuxt-link(to='/imprint/') imprint
       span •
-      nuxt-link(to='/page/terms-of-service/') terms of service
+      nuxt-link(to='/terms-of-service/') terms of service
       
     .txt
       span five degree change
