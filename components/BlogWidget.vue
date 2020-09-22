@@ -11,7 +11,7 @@
         
         .text(v-if='post.data.excerpt.length')
           prismic-rich-text(:field="post.data.excerpt")
-        p.text(v-else) {{ getFirstParagraph(post) }}
+        //- p.text(v-else) {{ getFirstParagraph(post) }}
         a.more.alt Continue reading &rarr;
         
 </template>
@@ -48,8 +48,6 @@ export default {
       });
       
       const limitedText = firstParagraph.substr(0, textLimit)
-
-      // post.data.
 
       if (firstParagraph.length > textLimit) {
         return limitedText.substr(0, limitedText.lastIndexOf(' ')) + '...';

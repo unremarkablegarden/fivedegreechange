@@ -27,4 +27,5 @@ table, td, .table, .table td
   border: 2px rgba(0,0,0,0.3) solid
   a
     background: transparent !important
+    border-bottom: 2px rgba(0,0,0,0.3) solid
 </style>

@@ -10,12 +10,15 @@ Middleware.nuxt_static = async ({ route, error }) => {
   if (!process.static) return
 
   const Components = getMatchedComponents(route)
-  Components.forEach(Component => {
-    Component._payloads = Component._payloads || {}
-    if (hasStaticAsyncData(Component)) {
-      Component.options.asyncData = ({ route }) => Component._payloads[route.path.replace(/\/$/, '')]
-    }
-  })
+  if (Components.length) {
+    Components.forEach(Component => {
+      Component._payloads = Component._payloads || {}
+      if (hasStaticAsyncData(Component)) {
+        Component.options.asyncData = ({ route }) => Component._payloads[route.path.replace(/\/$/, '')]
+      }
+    })  
+  }
+  
   const path = route.path.replace(/\/$/, '')
   const needFetch = Components.some(Component => hasStaticAsyncData(Component) && !Component._payloads[path])
   if (!needFetch) {
@@ -32,9 +35,11 @@ Middleware.nuxt_static = async ({ route, error }) => {
     return
   }
 
-  Components.forEach((Component, index) => {
-    if (hasStaticAsyncData(Component)) {
-      Component._payloads[path] = pageDatas[index]
-    }
-  })
+  if (Components.length) {
+    Components.forEach((Component, index) => {
+      if (hasStaticAsyncData(Component)) {
+        Component._payloads[path] = pageDatas[index]
+      }
+    })
+  }
 }

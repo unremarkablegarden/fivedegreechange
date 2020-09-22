@@ -1,8 +1,9 @@
 <template lang='pug'>
   .blog
+    //- xmp {{ document.hero_image.url }}
     .header
       nuxt-link(to='../').alt.back &larr; Back home
-      .meta.alt
+      //- .meta.alt
         .date {{ formattedDate }}
     
     .container
@@ -27,6 +28,73 @@
     footer-prismic
         
 </template>
+
+<script>
+import SlicesBlock from '~/components/SlicesBlock.vue'
+import FooterPrismic from '~/components/FooterPrismic.vue'
+
+export default {
+  name: 'post',
+  components: {
+    SlicesBlock,
+    FooterPrismic
+  },
+  transition: {
+    // name: 'home',
+    // mode: 'out-in'
+    // mode: 'in-out'
+  },
+  mounted () {
+    // console.log();
+  },
+  head () {
+    return {
+      title: this.$prismic.asText(this.document.title) + ' | five degree change' || 'Blog | five degree change',
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.document.sharing_image.url || this.document.hero_image.url || '/bwlogo.png',
+        }, {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'http://fivedegreechange.com' + this.$route.path,
+        }, {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.document.sharing_title || this.$prismic.asText(this.document.title)
+        }, {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.document.sharing_excerpt || this.$prismic.asText(this.document.excerpt),
+        }, {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: 'five degree change',
+        }, {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'website',
+        }, 
+      ]
+    }
+  },
+  async asyncData({ $prismic, params, error }) {
+    try{
+      const post = (await $prismic.api.getByUID('post', params.uid)).data
+
+      return {
+        document: post,
+        slices: post.body,
+        formattedDate: Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(post.date)),
+      }
+    } catch (e) {
+      error({ statusCode: 101, message: '?!?!' })
+    }
+  },
+
+}
+</script>
 
 <style lang="sass" scoped>
   .section
@@ -91,43 +159,3 @@
       color: black
       opacity: 0.4
 </style> 
-
-<script>
-import SlicesBlock from '~/components/SlicesBlock.vue'
-import FooterPrismic from '~/components/FooterPrismic.vue'
-
-export default {
-  name: 'post',
-  components: {
-    SlicesBlock,
-    FooterPrismic
-  },
-  transition: {
-    // name: 'home',
-    // mode: 'out-in'
-    // mode: 'in-out'
-  },
-  head () {
-    return {
-      title: this.document.title[0].text || 'Blog'
-    }
-  },
-  async asyncData({ $prismic, params, error }) {
-    try{
-      const post = (await $prismic.api.getByUID('post', params.uid)).data
-
-      return {
-        document: post,
-        slices: post.body,
-        formattedDate: Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(post.date)),
-      }
-    } catch (e) {
-      error({ statusCode: 101, message: '?!?!' })
-    }
-  },
-
-}
-</script>
-
-<style lang="sass">
-</style>

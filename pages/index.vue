@@ -1,6 +1,6 @@
 <template lang="pug">
   .homepage
-    //- xmp {{  }}
+    //- xmp {{ homepage }}
     prismic-link(:field='homepage.news_link')
       .news(v-if='homepage.news.length')
         prismic-rich-text(:field='homepage.news')
@@ -95,6 +95,33 @@ export default {
   head () {
     return {
       title: 'five degree change',
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.homepage.sharing_image.url || '/bwlogo.png',
+        }, {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: 'five degree change',
+        }, {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'website',
+        }, {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'http://fivedegreechange.com/',
+        }, {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.homepage.sharing_title || 'How about some change?',
+        }, {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.homepage.sharing_excerpt || 'I make it a bit easier to get a bit better. Most people approach change like this: they turn their life upside down, adopt a crazy, punishing routine, achieve some success initially, and then everything falls apart after a few weeks and they fall into a pit of despair and self-loathing. If that’s you, let me tell you about a different approach.',
+        },
+      ]
     }
   },
   async asyncData({ $prismic, error }) {
@@ -107,13 +134,17 @@ export default {
       )
       
       // console.log(homepage.body)
-      homepage.body.forEach(slice => {
-        if (slice.primary.subtitle.length) {
-          // let subtitle = 
-          // subtitle = 'hello'
-          slice.primary.subtitle[0].text = slice.primary.subtitle[0].text.replace(' — ', ' —\n')
+      if ('body' in homepage) {
+        if (homepage.body.length) {
+          homepage.body.forEach(slice => {
+            if (slice.primary.subtitle.length) {
+              // let subtitle = 
+              // subtitle = 'hello'
+              slice.primary.subtitle[0].text = slice.primary.subtitle[0].text.replace(' — ', ' —\n')
+            }
+          })
         }
-      })
+      }
 
       return {
         homepage,

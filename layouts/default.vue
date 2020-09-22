@@ -16,11 +16,13 @@
 <script>
 import Menu from '~/components/Menu.vue'
 import Logo from '~/components/Logo.vue'
+// import ClientOnly from 'vue-client-only'
 
 export default {
   components: {
     Menu,
-    Logo
+    Logo,
+    // ClientOnly
   }
 }
 </script>

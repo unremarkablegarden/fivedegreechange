@@ -76,7 +76,34 @@ export default {
   },
   head () {
     return {
-      title: 'five degree change',
+      title: 'Blog | five degree change',
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: '/bwlogo.png',
+        }, {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: 'five degree change',
+        }, {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'website',
+        }, {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'http://fivedegreechange.com/page/the-blog',
+        }, {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'Blog',
+        }, {
+          hid: 'og:description',
+          name: 'og:description',
+          content: '',
+        },
+      ]
     }
   },
   async asyncData({ $prismic, error }) {
@@ -89,13 +116,17 @@ export default {
       )
       
       // console.log(homepage.body)
-      homepage.body.forEach(slice => {
-        if (slice.primary.subtitle.length) {
-          // let subtitle = 
-          // subtitle = 'hello'
-          slice.primary.subtitle[0].text = slice.primary.subtitle[0].text.replace(' — ', ' —\n')
+      if ('body' in homepage) {
+        if (homepage.body.length) {
+          homepage.body.forEach(slice => {
+            if (slice.primary.subtitle.length) {
+              // let subtitle = 
+              // subtitle = 'hello'
+              slice.primary.subtitle[0].text = slice.primary.subtitle[0].text.replace(' — ', ' —\n')
+            }
+          })
         }
-      })
+      }
 
       return {
         homepage,

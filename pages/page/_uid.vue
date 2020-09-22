@@ -1,5 +1,4 @@
 <template lang='pug'>
-  
   .page(:class='colour', :data-name='document.title[0].text.trim().toLowerCase()')
     .header
       nuxt-link(to='/').alt.back &larr; Back home
@@ -41,7 +40,34 @@ export default {
   },
   head () {
     return {
-      title: this.document.title[0].text || 'Page'
+      title: this.$prismic.asText(this.document.title) + ' | five degree change' || 'Page | five degree change',
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.document.sharing_image.url || this.document.hero_image.url || '/bwlogo.png',
+        }, {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'http://fivedegreechange.com' + this.$route.path,
+        }, {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.document.sharing_title || this.$prismic.asText(this.document.title)
+        }, {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.document.sharing_excerpt || this.$prismic.asText(this.document.body.find(x => x.slice_type === 'text').primary.text.filter(x => x.type === 'paragraph' && x.text !== ''))
+        }, {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: 'five degree change',
+        }, {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'website',
+        }, 
+      ]
     }
   },
   computed: {

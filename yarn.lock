@@ -5662,6 +5662,11 @@ nuxt-cookie-control@^1.9.1:
     sass-loader "^7.0.1"
     string-replace-loader "^2.1.1"
 
+nuxt-social-meta@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/nuxt-social-meta/-/nuxt-social-meta-0.0.5.tgz#60dc2e8dc00401a122fc069fd9aa541894db5b2b"
+  integrity sha512-HVBuw2/ci4wiJxkEZDWP9t/vP7knM2APN9Swhslgi28uD4jgOUqWsEeljRP/TWB+kg1nEM3JhyiPIn3EdmuUFQ==
+
 nuxt@2.12.2:
   version "2.12.2"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.12.2.tgz#959baa919bfef4adcd9e88f84bc948a49a03edd8"
