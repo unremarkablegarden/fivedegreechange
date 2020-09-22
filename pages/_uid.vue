@@ -177,8 +177,8 @@ h1
 .hero_image
   border-radius: 1rem
 .hero_column
-  display: flex
-  justify-content: center
+  // display: flex
+  // justify-content: center
   
 .header
   padding: 1rem
