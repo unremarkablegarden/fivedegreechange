@@ -47,6 +47,8 @@ export default {
 
 <style lang="sass" scoped>
   .footer
+    float: none
+    clear: both
     background: rgba(0,0,0,0.07)
     text-align: center
     font-size: 0.8rem

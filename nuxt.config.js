@@ -83,15 +83,23 @@ module.exports = {
         },
         //else
         description:  'Used for cookie control.',
-        cookies: ['cookie_control_consent', 'cookie_control_enabled_cookies']
-      }
-    ],
-    optional: [
+        cookies: [
+          'cookie_control_consent',
+          'cookie_control_enabled_cookies',
+          
+        ]
+      },
       {
+        // <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        // new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        // j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        // 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        // })(window,document,'script','dataLayer','GTM-KKWPB5V');</script>        
         name:  'Google Analytics',
         identifier: 'ga',
         description:  'Used for visitor metrics',
-        src:  'https://www.googletagmanager.com/gtag/js?id=UA-178525231-1',
+        // src:  'https://www.googletagmanager.com/gtag/js?id=GTM-KKWPB5V',
+        src:  'https://www.googletagmanager.com/gtm.js?id=GTM-KKWPB5V',
         async:  true,
         cookies: ['_ga', '_gat', '_gid'],
         accepted: () =>{
@@ -104,6 +112,31 @@ module.exports = {
         declined: () =>{
         }
       }
+    ],
+    optional: [
+      // {
+      //   // <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      //   // new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      //   // j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      //   // 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      //   // })(window,document,'script','dataLayer','GTM-KKWPB5V');</script>        
+      //   name:  'Google Analytics',
+      //   identifier: 'ga',
+      //   description:  'Used for visitor metrics',
+      //   // src:  'https://www.googletagmanager.com/gtag/js?id=GTM-KKWPB5V',
+      //   src:  'https://www.googletagmanager.com/gtm.js?id=GTM-KKWPB5V',
+      //   async:  true,
+      //   cookies: ['_ga', '_gat', '_gid'],
+      //   accepted: () =>{
+      //     window.dataLayer = window.dataLayer || [];
+      //     window.dataLayer.push({
+      //       'gtm.start': new Date().getTime(),
+      //       event: 'gtm.js'
+      //     });
+      //   },
+      //   declined: () =>{
+      //   }
+      // }
     ]
   },
   
