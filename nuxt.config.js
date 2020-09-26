@@ -22,7 +22,11 @@ module.exports = {
         src:
           'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver',
         body: true
-      }
+      },
+      // {
+      //   src: 'https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js',
+      //   body: true
+      // }
     ]
   },
 
@@ -46,6 +50,7 @@ module.exports = {
   */
   plugins: [
     { src: '~/plugins/prismicLinks', ssr: false },
+    { src: '~plugins/vue-cookie-law.js', ssr: false },
     // { src: "~/plugins/vue-page-transition", ssr: true },
     // { src: "~/plugins/vue-client-only", ssr: true },
   ],
@@ -60,85 +65,85 @@ module.exports = {
     '@nuxtjs/bulma',
     '@/modules/static',
     '@/modules/crawler',
-    ['nuxt-cookie-control', {
-      //'top-left', 'top-right', 'top-full',
-      //'bottom-left', 'bottom-right', 'bottom-full'
-      barPosition: 'bottom-full',
-    }],
+    // ['nuxt-cookie-control', {
+    //   //'top-left', 'top-right', 'top-full',
+    //   //'bottom-left', 'bottom-right', 'bottom-full'
+    //   barPosition: 'bottom-full',
+    // }],
   ],
   
   
-  cookies: {
-    necessary: [
-      {
-        //if multilanguage
-        name: {
-          en: 'Default Cookies'
-        },
-        //else
-        name:  'Default Cookies',
-        //if multilanguage
-        description: {
-          en:  'Used for cookie control.'
-        },
-        //else
-        description:  'Used for cookie control.',
-        cookies: [
-          'cookie_control_consent',
-          'cookie_control_enabled_cookies',
+  // cookies: {
+  //   necessary: [
+  //     {
+  //       //if multilanguage
+  //       name: {
+  //         en: 'Default Cookies'
+  //       },
+  //       //else
+  //       name:  'Default Cookies',
+  //       //if multilanguage
+  //       description: {
+  //         en:  'Used for cookie control.'
+  //       },
+  //       //else
+  //       description:  'Used for cookie control.',
+  //       cookies: [
+  //         'cookie_control_consent',
+  //         'cookie_control_enabled_cookies',
           
-        ]
-      },
-      {
-        // <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        // new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        // j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        // 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        // })(window,document,'script','dataLayer','GTM-KKWPB5V');</script>        
-        name:  'Google Analytics',
-        identifier: 'ga',
-        description:  'Used for visitor metrics',
-        // src:  'https://www.googletagmanager.com/gtag/js?id=GTM-KKWPB5V',
-        src:  'https://www.googletagmanager.com/gtm.js?id=GTM-KKWPB5V',
-        async:  true,
-        cookies: ['_ga', '_gat', '_gid'],
-        accepted: () =>{
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-          });
-        },
-        declined: () =>{
-        }
-      }
-    ],
-    optional: [
-      // {
-      //   // <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      //   // new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      //   // j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      //   // 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      //   // })(window,document,'script','dataLayer','GTM-KKWPB5V');</script>        
-      //   name:  'Google Analytics',
-      //   identifier: 'ga',
-      //   description:  'Used for visitor metrics',
-      //   // src:  'https://www.googletagmanager.com/gtag/js?id=GTM-KKWPB5V',
-      //   src:  'https://www.googletagmanager.com/gtm.js?id=GTM-KKWPB5V',
-      //   async:  true,
-      //   cookies: ['_ga', '_gat', '_gid'],
-      //   accepted: () =>{
-      //     window.dataLayer = window.dataLayer || [];
-      //     window.dataLayer.push({
-      //       'gtm.start': new Date().getTime(),
-      //       event: 'gtm.js'
-      //     });
-      //   },
-      //   declined: () =>{
-      //   }
-      // }
-    ]
-  },
+  //       ]
+  //     },
+  //     {
+  //       // <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  //       // new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  //       // j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  //       // 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  //       // })(window,document,'script','dataLayer','GTM-KKWPB5V');</script>        
+  //       name:  'Google Analytics',
+  //       identifier: 'ga',
+  //       description:  'Used for visitor metrics',
+  //       // src:  'https://www.googletagmanager.com/gtag/js?id=GTM-KKWPB5V',
+  //       src:  'https://www.googletagmanager.com/gtm.js?id=GTM-KKWPB5V',
+  //       async:  true,
+  //       cookies: ['_ga', '_gat', '_gid'],
+  //       accepted: () =>{
+  //         window.dataLayer = window.dataLayer || [];
+  //         window.dataLayer.push({
+  //           'gtm.start': new Date().getTime(),
+  //           event: 'gtm.js'
+  //         });
+  //       },
+  //       declined: () =>{
+  //       }
+  //     }
+  //   ],
+  //   optional: [
+  //     // {
+  //     //   // <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  //     //   // new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  //     //   // j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  //     //   // 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  //     //   // })(window,document,'script','dataLayer','GTM-KKWPB5V');</script>        
+  //     //   name:  'Google Analytics',
+  //     //   identifier: 'ga',
+  //     //   description:  'Used for visitor metrics',
+  //     //   // src:  'https://www.googletagmanager.com/gtag/js?id=GTM-KKWPB5V',
+  //     //   src:  'https://www.googletagmanager.com/gtm.js?id=GTM-KKWPB5V',
+  //     //   async:  true,
+  //     //   cookies: ['_ga', '_gat', '_gid'],
+  //     //   accepted: () =>{
+  //     //     window.dataLayer = window.dataLayer || [];
+  //     //     window.dataLayer.push({
+  //     //       'gtm.start': new Date().getTime(),
+  //     //       event: 'gtm.js'
+  //     //     });
+  //     //   },
+  //     //   declined: () =>{
+  //     //   }
+  //     // }
+  //   ]
+  // },
   
   /*
   ** Axios module configuration
@@ -148,8 +153,18 @@ module.exports = {
   // },
   
   buildModules: [
-    '@nuxtjs/prismic'
+    '@nuxtjs/prismic',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-178525231-1'
+    }]
   ],
+  
+  googleAnalytics: {
+    debug: {
+      // enabled: true,
+      // sendHitTask: true
+    }    
+  },
   
   telemetry: false,
   
