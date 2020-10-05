@@ -1,6 +1,6 @@
 <template lang='pug'> 
   .post-part.single.container
-    blockquote(:class='slice.primary.align.toLowerCase()').block-quotation.
+    blockquote(:class='align').block-quotation.
       {{ $prismic.asText(slice.primary.quote) }}
     
 </template>
@@ -8,7 +8,16 @@
 <script>
 export default {
   props: ['slice'],
-  name: 'quote-slice'
+  name: 'quote-slice',
+  computed: {
+    align () {
+      let align = 'right'
+      if ('align' in this.slice.primary) {
+        align = this.slice.primary.align.toLowerCase()
+      }
+      return align
+    }
+  }
 }
 </script>
 
