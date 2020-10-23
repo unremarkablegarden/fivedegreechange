@@ -25,6 +25,7 @@ export default {
   // left: 0
   // width: 100vw
   margin-bottom: 6vw
+  text-align: center
   &.big
     // background: 
     $c: rgba(0,0,0,0.2)

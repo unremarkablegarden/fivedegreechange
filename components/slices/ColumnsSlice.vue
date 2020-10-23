@@ -1,6 +1,7 @@
 <template lang='pug'>
   .slice.cols
-    .columns.is-12.is-variable.is-7
+    
+    .columns.is-12.is-variable.is-7(:class="{ logos: slice.primary.logos }")
       .column(v-for='item in slice.items')
         prismic-rich-text(:field='item.column')
         //- xmp {{ item.column }}
@@ -20,4 +21,16 @@ export default {
   .slice, .clear
     clear: both
     float: none
+    
+  .columns.logos
+    padding: 1vw
+    background: rgba(255,255,255,0.1)
+    border-radius: 1em
+    .column
+      display: flex
+      align-items: center
+      justify-content: center
+      p.block-img
+        padding: 0 !important
+        
 </style>

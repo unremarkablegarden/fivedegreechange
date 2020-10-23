@@ -26,12 +26,13 @@ export default {
   // margin-bottom: 2rem
   // margin: 2rem 12rem 3rem 6rem
   padding-top: 1rem
-  font-size: 3.6vw
-  line-height: 1.2em
-  letter-spacing: -0.06em
+  font-size: 2vw
+  line-height: 1.3em
+  // letter-spacing: -0.06em
   display: inline-block
   font-style: italic
-  color: #FF3F16
+  color: #777
+  // color: #FF3F16
   // color: #6C91F7
   // opacity: 0.45
   &.right
