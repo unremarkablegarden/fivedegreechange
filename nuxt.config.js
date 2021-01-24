@@ -4,6 +4,9 @@ const axios = require('axios')
 module.exports = {
   // mode: 'universal',
 
+  // target: 'static',
+  target: 'server',
+  
   /*
   ** Headers of the page
   */
@@ -203,7 +206,8 @@ module.exports = {
       return axios
         .get('https://fivedegreechange.cdn.prismic.io/api/v2/documents/search', {
           params: {
-            ref: 'X2ClJhEAACIAfVxE',
+            // ref: 'X2ClJhEAACIAfVxE',
+            ref: 'YAadExMAACUArOUg',
             pageSize: 100
           }
         })

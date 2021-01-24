@@ -57,7 +57,7 @@ export default {
         }, {
           hid: 'og:description',
           name: 'og:description',
-          content: this.document.sharing_excerpt || this.$prismic.asText(this.document.body.find(x => x.slice_type === 'text').primary.text.filter(x => x.type === 'paragraph' && x.text !== ''))
+          content: this.description
         }, {
           hid: 'og:site_name',
           name: 'og:site_name',
@@ -71,6 +71,23 @@ export default {
     }
   },
   computed: {
+    description () {
+      let desc = ''
+      if (this.document && this.document.sharing_excerpt) {
+        desc = this.document.sharing_excerpt
+      }
+      else if (this.document && this.document.body) {
+        let t = this.document.body.find(x => x.slice_type === 'text')
+        if (t && t.primary) {
+          let tp = t.primary.text.filter(x => x.type === 'paragraph' && x.text !== '')  
+          desc = this.$prismic.asText(tp)
+        }
+      }
+      // console.log('----------------------------');
+      // console.log(desc);
+      // console.log('----------------------------');
+      return desc
+    },
     colour () {
       const options = {
         "Black and white": 'black-and-white',

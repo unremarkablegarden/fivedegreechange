@@ -26,18 +26,21 @@
           slices-block(:slices='slices')
           
     footer-prismic
+    blog-grid(:posts='allPosts')
         
 </template>
 
 <script>
 import SlicesBlock from '~/components/SlicesBlock.vue'
 import FooterPrismic from '~/components/FooterPrismic.vue'
+import BlogGrid from '~/components/BlogGrid.vue'
 
 export default {
   name: 'post',
   components: {
     SlicesBlock,
-    FooterPrismic
+    FooterPrismic,
+    BlogGrid
   },
   transition: {
     // name: 'home',
@@ -83,10 +86,20 @@ export default {
     try{
       const post = (await $prismic.api.getByUID('post', params.uid)).data
 
+      const blogPosts = await $prismic.api.query(
+        $prismic.predicates.at("document.type", "post"),
+        { orderings : '[my.post.date desc]' }
+      )
+      
+      const allExceptThis = blogPosts.results.filter(x => {
+        return x.data.sharing_title !== post.sharing_title
+      })
+
       return {
         document: post,
         slices: post.body,
         formattedDate: Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(post.date)),
+        allPosts: allExceptThis
       }
     } catch (e) {
       error({ statusCode: 101, message: '?!?!' })

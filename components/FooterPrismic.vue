@@ -9,7 +9,7 @@
       //- a(:href='email', taget='_blank') email
       nuxt-link(to='/contact/') contact
       span •
-      nuxt-link(to='/the-blog/') blog
+      nuxt-link(to='/blog/') blog
       span •
       a(href='https://www.instagram.com/5degreechange/', taget='_blank') instagram
       span •

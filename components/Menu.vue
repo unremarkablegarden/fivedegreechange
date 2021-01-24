@@ -14,7 +14,7 @@
         nuxt-link(to='/team-work').menu-item Team development
       nuxt-link(to='/').menu-item Home
       nuxt-link(to='/olof').menu-item About
-      nuxt-link(to='/the-blog/').menu-item Blog
+      nuxt-link(to='/blog/').menu-item Blog
       nuxt-link(to='/contact').menu-item Get in touch
     .bg(:class='{ "is-active": open }', @click='toggle') &nbsp;
             
